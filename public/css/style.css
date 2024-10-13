@@ -1,0 +1,73 @@
+:root {
+    --primary-color: #003F7D;
+    --second-color: #002F5CCC;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header {
+    background-color: rgb(202, 202, 255);
+    /* height: 960px; */
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0.8;
+}
+header .nav{
+    background-color: var(--primary-color);
+}
+header .down{
+    position: absolute;
+    color: white;
+    bottom: 0; /* Đưa xuống dưới cùng */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%); /* Điều chỉnh vị trí để căn giữa chính xác */
+    color: white;
+    padding: 20px; /* Thêm một chút khoảng cách */
+    font-size: 32px;
+}
+.nav li a{
+    color: white;
+
+}
+/* Footer */
+footer{
+    background-color: var(--primary-color);
+    color: white;
+}
+footer .logo p{
+    font-size: 14px;
+}
+
+footer .title{
+    font-size: 24px;
+    font-weight: 400;
+}
+footer .information {
+    padding: 0;
+}
+footer .information li{
+    list-style-type: none;
+    display: flex;
+}
+footer .information li {
+    list-style-type: none;
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin-bottom: 10px; /* Thêm khoảng cách giữa các mục */
+}
+footer .information li i {
+    width: 21px;
+    margin-right: 10px;
+}
+
+footer .information p{
+    margin-bottom: 0;
+}
+
+footer .location {
+    padding-left: 24px;
+}
