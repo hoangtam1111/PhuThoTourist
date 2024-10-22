@@ -29,7 +29,7 @@ class Recruitment extends Model
         return $this->belongsTo(Field::class);
     }
     public function type_work(){
-        return $this->belongsTo(TypeWord::class);
+        return $this->belongsTo(TypeWork::class);
     }
     public function working_place(){
         return $this->belongsTo(WorkingPlace::class);

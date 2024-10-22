@@ -14,6 +14,9 @@ class PostRepository implements PostInterface
     {
         return Post::find($id);
     }
+    public function getPostsOnPage($page, $pageSize){
+        return Post::skip(($page - 1) * $pageSize)->take($pageSize)->get();
+    }
     public function getNewPost($quantiyPost){
         return Post::latest()->take($quantiyPost)->get();
     }
