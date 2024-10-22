@@ -9,7 +9,7 @@
 }
 .navbar .logo{
     width: 100%;
-    max-width: 962px;
+    max-width: 700px;
 }
 .navbar img ,.navbar i, .navbar p{
     position: absolute;
@@ -21,13 +21,13 @@
     display: inline;
 }
 .navbar .logo-group{
-    bottom: 16%;
+    bottom: 22%;
     width: 100%;
-    max-width: 1174px;
+    max-width: 800px;
 
 }
 .navbar p {
-    bottom: 10%;
+    bottom: 12%;
     font-size: 20px;
     color: white;
     display: none;
@@ -54,7 +54,7 @@
     margin: 0;
 }
 .content .header {
-    font-size: 36px;
+    font-size: 30px;
     color: var(--primary-color);
     font-weight: 700;
 }

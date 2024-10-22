@@ -1,0 +1,9 @@
+<?php
+namespace App\Repositories\Interfaces;
+interface SliderInterface{
+    public function getAllSlider();
+    public function getSlider($id);
+    public function insertSlider($data);
+    public function updateSlider($data,$id);
+    public function deleteSlider($id);
+}
