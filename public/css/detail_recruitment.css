@@ -1,0 +1,125 @@
+.content{
+    background-color: #FFFFFFCC;
+    border-radius: 20px;
+    padding: 40px 6%;
+}
+.content .title img{
+    width: 120px;
+    margin-left: -10px;
+}
+.content .text .name{
+    font-size: 36px;
+    font-weight: 700;
+    color: #003F7D;
+}
+.content .text .type{
+    font-size: 20px;
+    color: #3376B8;
+}
+.content .text .time,
+.content .text .location{
+    font-weight: 600;
+    font-size: 18px;
+    color: #666666;
+}
+.content .title .state.green{
+    background-color: #E6F7E6;
+    color: #03A600;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 46px;
+    padding: 14px 26px;
+    height: 57px;
+}
+
+.content .title .state.red{
+    background-color: #F7E6E6;
+    color: #FF3939;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 46px;
+    padding: 14px 26px;
+    height: 57px;
+}
+.content  .header{
+    font-weight: 600;
+    font-size: 24px;
+    color: #0054A6;
+}
+.content .detail .table{
+    color: #333333;
+    vertical-align: middle;
+}
+.content .detail td{
+    padding: 16px 36px;
+}
+.content .detail .head{
+    font-size: 18px;
+    font-weight: 600;
+    width: 22%;
+}
+.content .detail td ul{
+    padding-left: 18px;
+    margin-bottom: 0;
+}
+.content .apply {
+    width: 80%;
+}
+.content .apply .col-md-5{
+    width: 47%;
+}
+.content .apply .radio{
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+.content .apply label{
+    font-size: 18px;
+    font-weight: 600;
+    color: #4D4D4D;
+    margin-bottom: 4px;
+}
+.content .apply .file-name,
+.content .apply input[type="text"] {
+    padding: 8px 16px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+}
+.content .apply input[type="radio"]{
+    background-color: #0054A6;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+.content .apply input[type="file"]{
+    opacity: 0;
+    width: 0;
+}
+.content .apply span{
+    line-height: 20px;
+    font-size: 18px;
+}
+.content .apply .file{
+    position: relative;
+}
+.content .apply .icon{
+    position: absolute;
+    top: 36px;
+    right: 12px;
+}
+
+.content .apply textarea{
+    width: 100%;
+    padding: 12px;
+    height: 150px;
+}
+.content .apply button{
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    background-color: #0054A6;
+    border: none;
+    padding: 4px 28px;
+    border-radius: 6px;
+}

@@ -1,0 +1,66 @@
+.content{
+    background-color: #FFFFFFB2;
+    border-radius: 20px;
+    padding: 48px;
+}
+
+.content > .title{
+    color: #0054A6;
+    font-weight: 700;
+    font-size: 40px;
+}
+.content .time{
+    font-weight: 400;
+    color: #666666;
+}
+.content .img-detail{
+    border-radius: 4px;
+    opacity: 1;
+    z-index: 999;
+}
+.content .text{
+    font-size: 18px;
+    color: #666666;
+}
+.content .file{
+    width: 100%;
+    max-width: 831px;
+    height: 747px;
+}
+
+.content .related-posts .role{
+    font-size: 14px;
+    color: #858585;
+}
+.content .related-posts .circle{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #03A600;
+}
+.content .related-posts > .title{
+    font-size: 32px;
+    font-weight: 600;
+}
+.content .related-posts .title{
+    color: #0054A6;
+    font-weight: 700;
+}
+.content .related-posts span{
+    border-radius: 46px;
+    padding: 8px 12px;
+    color: #0054A6;
+    background-color: #E6EEF7;
+    font-weight: 600;
+    font-size: 12px;
+}
+.content .related-posts .information{
+    font-size: 14px;
+    color: #858585;
+}
+.content .related-posts .circle-gray{
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #858585;
+}

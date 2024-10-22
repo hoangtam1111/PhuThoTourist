@@ -14,6 +14,9 @@ class PostRepository implements PostInterface
     {
         return Post::find($id);
     }
+    public function getNewPost($quantiyPost){
+        return Post::latest()->take($quantiyPost)->get();
+    }
     public function insertPost($data)
     {
         Post::create($data);

@@ -7,9 +7,9 @@ use App\Repositories\Interfaces\AboutInterface;
 
 class AboutRepository implements AboutInterface
 {
-    public function getAbout($id)
+    public function getAbout()
     {
-        return About::find($id);
+        return About::get();
     }
     public function insertAbout($data)
     {

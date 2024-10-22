@@ -14,6 +14,10 @@ class CentralServiceRepository implements CentralServiceInterface
     public function getAllCentralService(){
         return CentralService::get();
     }
+    public function getAllCentralServiceActive(){
+        return CentralService::where('active',1)->get();
+    }
+
     public function insertCentralService($data)
     {
         CentralService::create($data);

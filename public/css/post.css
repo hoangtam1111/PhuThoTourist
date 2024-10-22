@@ -1,0 +1,145 @@
+/* Type */
+.type-post{
+    border-radius: 12px;
+    background-color: white;
+    padding: 24px;
+    height: 98%;
+    position: relative;
+}
+.type-post .head{
+    font-size: 24px;
+    color: #0054A6;
+    font-weight: 700;
+    font-family: Philosopher;
+}
+.type-post .list-type{
+    padding-left: 0;
+}
+.type-post .list-type li{
+    padding: 12px;
+    list-style: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #6698CA;
+    font-family: Roboto;
+    border-radius: 8px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.type-post .list-type li i{
+    color: #0054A6;
+    font-size: 20px;
+}
+.type-post .list-type li.active i,
+.type-post .list-type li.active {
+    background-color: #0054A6;
+    color: white;
+    font-weight: 700;
+}
+.type-post img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+/* Filter */
+.filter {
+    background-color: wheat;
+    padding: 12px;
+    border-radius: 12px;
+}
+.filter .search {
+    position: relative;
+}
+.filter .search i {
+    font-size: 20px;
+    color: #0054A6;
+    position: absolute;
+    left: 16px;
+    top: 22%;
+}
+
+.filter .search input {
+    font-size: 20px;
+    padding: 4px 8px;
+    padding-left: 48px;
+    border: none;
+    border-radius: 6px;
+    background-color: white;
+}
+.filter .date input{
+    font-size: 20px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: none;
+    width: 100%;
+    max-width: 160px;
+}
+.filter .date span{
+    font-weight: 600;
+    font-size: 18px;
+    color: #666666;
+}
+.filter .date i{
+    color: #0054A6;
+
+}
+.filter .date span i{
+    transform: rotate(90deg);
+}
+/* Card */
+.content .related-posts .card{
+    border-radius: 8px;
+}
+.content .related-posts .role{
+    font-size: 14px;
+    color: #858585;
+}
+.content .related-posts .circle{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #03A600;
+}
+.content .related-posts > .title{
+    font-size: 32px;
+    font-weight: 600;
+}
+.content .related-posts .title{
+    color: #0054A6;
+    font-weight: 700;
+}
+.content .related-posts .action span{
+    border-radius: 46px;
+    padding: 4px 8px;
+    color: #0054A6;
+    background-color: #E6EEF7;
+    font-weight: 600;
+    font-size: 12px;
+}
+.content .related-posts .information{
+    font-size: 14px;
+    color: #858585;
+}
+.content .related-posts .circle-gray{
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #858585;
+}
+/* List page */
+.content .list-page div{
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin: 0 2px;
+    font-weight: 500;
+    color: #666666;
+}
+.content .list-page .active{
+    background-color: #0054A6;
+    color: white;
+    font-weight: 700;
+}

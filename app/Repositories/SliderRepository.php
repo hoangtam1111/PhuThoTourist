@@ -10,6 +10,9 @@ class SliderRepository implements SliderInterface
     public function getAllSlider(){
         return Slider::get();
     }
+    public function getAllSliderActive(){
+        return Slider::where('active',1)->get();
+    }
     public function getSlider($id)
     {
         return Slider::find($id);

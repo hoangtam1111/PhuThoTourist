@@ -1,0 +1,132 @@
+.content .filter{
+    background-color: #FFFFFFB2;
+    border-radius: 12px;
+    padding: 12px;
+    position: relative;
+    height: 100%;
+}
+.content .filter-search{
+    position: relative;
+
+}
+.content .filter-search i{
+    position: absolute;
+    top: 20%;
+    left: 4%;
+    font-size: 18px;
+    color: #0054A6;
+}
+.content .filter-search input{
+    width: 100%;
+    padding: 4px 12px;
+    padding-left: 30px;
+    border-radius: 6px;
+    border: none;
+}
+.content .filter .underline{
+    background-color: white;
+    width: 100%;
+    height: 1px;
+}
+
+.content .field .title{
+    color: #0054A6;
+    font-weight: 700;
+    font-size: 20px;
+}
+.content .list-field div{
+    padding:8px 8px;
+    border-radius: 99px;
+    background-color: white;
+    font-size: 14px;
+    margin-right: 7px;
+    margin-bottom: 7px;
+}
+.content .list-field div.active{
+    background-color: #0054A6;
+    color: white;
+    font-weight: 600;
+}
+.content .filter .img-background{
+    position: absolute;
+    width: 240px;
+    right: 0;
+    bottom: 0;
+}
+.content .recruiment{
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 12px;
+}
+.content .recruiment img{
+    width: 26%;
+    margin: -12px -12px 30px;
+}
+
+.content .recruiment .name{
+    font-size: 18px;
+    font-weight: 700;
+    color: #0054A6;
+}
+.content .recruiment .type{
+    font-size: 14px;
+    color: #3376B8;
+}
+.content .recruiment .location,
+.content .recruiment .time{
+    color: #666666;
+    font-size: 14px;
+}
+
+.content .recruiment .state.green{
+    background-color: #E6F7E6;
+    color: #03A600;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 46px;
+    padding: 8px 12px;
+    margin-top: -8px;
+}
+
+.content .recruiment .state.red{
+    background-color: #F7E6E6;
+    color: #FF3939;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 46px;
+    padding: 8px 12px;
+    margin-top: -8px;
+}
+
+.content .recruiment .detail{
+    color: #0054A6;
+    font-weight: 600;
+}
+.content .recruiment .description{
+    font-size: 13px;
+    color: #666666;
+}
+.content .recruiment button{
+    background-color: #0054A6;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    padding: 6px;
+    margin-top: 12px;
+}
+
+.content .list-page div{
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin: 0 2px;
+}
+.content .list-page .active{
+    background-color: #0054A6;
+    color: white;
+}
