@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DetailTypePost extends Model
 {
     use HasFactory;
-    protected $table = 'ddetail_type_posts';
+    protected $table = 'detail_type_posts';
     protected $fillable=[
         'id',
         'post_id',

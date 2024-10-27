@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('overtime');
             $table->string('previous_workplace');
             $table->string('experience');
-            $table->foreignId('recruiment_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('recruitment_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

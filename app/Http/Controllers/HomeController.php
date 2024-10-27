@@ -19,9 +19,9 @@ class HomeController extends Controller
     }
     public function index(){
         $sliders=$this->slider->getAllSliderActive();
-        $about=$this->about->getAbout()->post();
+        // $about=$this->about->getAbout()->post();
         $newPosts=$this->post->getNewPost(3);
         $centralServices=$this->centralService->getAllCentralServiceActive();
-        return view('index', compact('about', 'about', 'newPosts', 'centralServices'));
+        return view('index', compact('sliders', 'newPosts', 'centralServices'));
     }
 }

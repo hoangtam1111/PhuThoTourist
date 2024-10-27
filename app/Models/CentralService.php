@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CentralService extends Model
 {
     use HasFactory;
-    protected $table = 'central_service';
+    protected $table = 'central_services';
     protected $fillable=[
         'id',
         'title',

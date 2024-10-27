@@ -16,6 +16,10 @@ class Post extends Model
         'image',
         'file',
         'date',
-        'user_id'
+        'user_id',
+        'view'
     ];
+    public function typePost(){
+        return $this->belongsToMany(TypePost::class, 'detail_type_posts', 'type_post_id', 'post_id');
+    }
 }

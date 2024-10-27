@@ -1,0 +1,102 @@
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` ( `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+('Admin', 'Admin@gmail.com', NULL, 'admin123', NULL, NULL, NULL);
+
+--
+-- Đang đổ dữ liệu cho bảng `working_places`
+--
+
+INSERT INTO `working_places` ( `name`, `created_at`, `updated_at`) VALUES
+( 'Cà Phê Vườn Đá', NULL, NULL),
+( 'NH Thủy Tạ Đầm Sen', NULL, NULL),
+( 'CVVH Đầm Sen', NULL, NULL),
+( 'Khách sạn Ngọc Lan', NULL, NULL),
+( 'Khách sạn Phú Thọ', NULL, NULL),
+( 'KDL Sinh Thái Vàm Sát', NULL, NULL),
+( 'Trung tâm DVDL Đầm Sen', NULL, NULL),
+( 'VP Phuthotourist', NULL, NULL);
+
+INSERT INTO `central_services` ( `title`, `description`, `image`, `active`, `created_at`, `updated_at`) VALUES
+( 'Vui chơi giải trí', 'Với 2 khu giải trí nổi tiếng TP.HCM là Công viên văn hóa Đầm Sen, và khu du lịch sinh thái Vàm Sát (H.Cần Giờ)...', 'central1.png', 1, NULL, NULL),
+( 'Nhà hàng – Khách sạn', 'Với hệ thống khách sạn Phú Thọ và Ngọc Lan đạt chuẩn 3 sao, chuyên tiếp đón các đoàn thể thao....', 'central2.png', 1, NULL, NULL),
+( 'Dịch vụ Lữ hành', 'Tổ chức các tour trong và ngoài nước với Trung tâm Dịch vụ du lịch Đầm Sen. Ngoài ra Trung tâm còn thế mạnh là tổ chức...', 'central3.png', 1, NULL, NULL);
+
+
+--
+-- Đang đổ dữ liệu cho bảng `detail_type_posts`
+--
+
+
+
+--
+-- Đang đổ dữ liệu cho bảng `fields`
+--
+
+INSERT INTO `fields` ( `name`, `created_at`, `updated_at`) VALUES
+('Hướng dẫn viên', NULL, NULL),
+('Kinh doanh', NULL, NULL),
+('Kỹ sư xây dựng', NULL, NULL),
+('Nhân viên kế toán', NULL, NULL),
+('Nhân viên kĩ thuật', NULL, NULL),
+('Nhân viên phục vụ', NULL, NULL);
+
+INSERT INTO `type_works` ( `name`, `created_at`, `updated_at`) VALUES
+('Bán thời gian', NULL, NULL),
+('Nhân viên chính thức', NULL, NULL),
+('Theo ca', NULL, NULL),
+('Thực tập', NULL, NULL),
+('Bán thời gian', NULL, NULL),
+('Nhân viên chính thức', NULL, NULL),
+('Theo ca', NULL, NULL),
+('Thực tập', NULL, NULL);
+
+
+INSERT INTO `posts` ( `title`, `description`, `image`, `file`, `view`, `user_id`, `created_at`, `updated_at`) VALUES
+('Kết quả đấu giá giữ xe tại CVVH Đầm Sen 2022', 'Công ty Cổ phần Dịch vụ Du lịch Phú Thọ xin thông báo đến các đơn vị tham gia đấu giá cạnh tranh hạng mục “Hợp tác giữ xe 02 – 04 bánh tại Công viên văn hóa Đầm Sen (Số 03 Hòa Bình, Phường 03, Quận 11, TP.HCM), kết quả như sau\r\n\r\nTên hạng mục đấu giá: Hợp', 'post1.png', '', 0, 1, NULL, NULL),
+('Kết quả đấu giá giữ xe tại CVVH Đầm Sen 2022', 'Công ty Cổ phần Dịch vụ Du lịch Phú Thọ xin thông báo đến các đơn vị tham gia đấu giá cạnh tranh hạng mục “Hợp tác giữ xe 02 – 04 bánh tại Công viên văn hóa Đầm Sen (Số 03 Hòa Bình, Phường 03, Quận 11, TP.HCM), kết quả như sau\r\n\r\nTên hạng mục đấu giá: Hợp', 'post1.png', '', 0, 1, NULL, NULL),
+('Kết quả đấu giá giữ xe tại CVVH Đầm Sen 2022', 'Công ty Cổ phần Dịch vụ Du lịch Phú Thọ xin thông báo đến các đơn vị tham gia đấu giá cạnh tranh hạng mục “Hợp tác giữ xe 02 – 04 bánh tại Công viên văn hóa Đầm Sen (Số 03 Hòa Bình, Phường 03, Quận 11, TP.HCM), kết quả như sau\r\n\r\nTên hạng mục đấu giá: Hợp', 'post1.png', '', 0, 1, NULL, NULL);
+
+
+INSERT INTO `type_posts` ( `name`, `created_at`, `updated_at`) VALUES
+('Giới thiệu', NULL, NULL),
+('Tin tức', NULL, NULL),
+('Sự kiện', NULL, NULL),
+('Thông báo', NULL, NULL),
+('Tin cổ đông', NULL, NULL),
+('Hoạt động đoàn thể', NULL, NULL);
+
+INSERT INTO `detail_type_posts` ( `type_post_id`, `post_id`, `created_at`, `updated_at`) VALUES
+( 1, 2, NULL, NULL),
+( 1, 3, NULL, NULL),
+( 2, 3, NULL, NULL),
+( 1, 4, NULL, NULL),
+( 2, 2, NULL, NULL),
+( 1, 4, NULL, NULL),
+( 2, 4, NULL, NULL),
+( 5, 4, NULL, NULL);
+--
+-- Đang đổ dữ liệu cho bảng `recruiments`
+--
+
+INSERT INTO `recruitments` ( `state`, `location`, `workplace`, `address`, `job_description`, `date`, `working_time`, `interest`, `requirement`, `age`, `level`, `file`, `field_id`, `type_work_id`, `working_place_id`) VALUES
+( '', 'Nhân viên thiết kế đồ họa', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '0000-00-00', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', 'detail-recruiment.png', 5, 2, 3),
+( '', 'Nhân viên thiết kế đồ họa', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '0000-00-00', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', 'detail-recruiment.png', 5, 2, 3),
+( '', 'Nhân viên thiết kế đồ họa', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '0000-00-00', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', 'detail-recruiment.png', 5, 2, 3);
+
+--
+-- Đang đổ dữ liệu cho bảng `type_posts`
+--
+
+
+--
+-- Đang đổ dữ liệu cho bảng `type_works`
+--
+
+
+
+INSERT INTO `recruitments` (`id`, `state`, `location`, `quantity`, `workplace`, `address`, `job_description`, `date`, `working_time`, `interest`, `requirement`, `age`, `level`, `file`, `field_id`, `type_work_id`, `working_place_id`) VALUES (NULL, '0', 'Nhân viên thiết kế đồ họa', '1', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '2024-10-23', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', '', '5', '2', '3'),(NULL, '0', 'Nhân viên thiết kế đồ họa', '1', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '2024-10-23', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', '', '5', '2', '3'),(NULL, '0', 'Nhân viên thiết kế đồ họa', '1', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '2024-10-23', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', '', '5', '2', '3'),(NULL, '0', 'Nhân viên thiết kế đồ họa', '1', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '2024-10-23', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', '', '5', '2', '3'),(NULL, '0', 'Nhân viên thiết kế đồ họa', '1', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '2024-10-23', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', '', '5', '2', '3'), (NULL, '0', 'Nhân viên thiết kế đồ họa', '1', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '2024-10-23', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', '', '5', '2', '3'),(NULL, '0', 'Nhân viên thiết kế đồ họa', '1', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '2024-10-23', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', '', '5', '2', '3'),(NULL, '0', 'Nhân viên thiết kế đồ họa', '1', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '2024-10-23', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', '', '5', '2', '3'),(NULL, '0', 'Nhân viên thiết kế đồ họa', '1', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '2024-10-23', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', '', '5', '2', '3')
+,(NULL, '0', 'Nhân viên thiết kế đồ họa', '1', 'Công viên văn hóa Đầm Sen', '3 Hòa Bình, Phường 3, Quận 11, TP.HCM', 'Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và các ấn phẩm phục vụ sự kiện, truyền thông của công viên.\r\nChụp hình, quay phim, dựng video đơn giản.\r\nLên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.\r\nCác chi tiết về công việc được trao đổi tại buổi phỏng vấn.', '2024-10-23', 'Giờ hành chính', 'Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH\r\nThưởng tháng 13, 14, các ngày lễ, tết trong năm.\r\nĐược phục vụ bữa ăn trưa tại nơi làm việc.', 'Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....\r\nSử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).\r\nCó khả năng quay và dựng video hấp dẫn người xem', '22 - 27 tuổi', 'Cao đẳng', '', '5', '2', '3')
+--
+

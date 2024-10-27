@@ -14,6 +14,7 @@
     color: #666666;
 }
 .content .img-detail{
+    width: 100%;
     border-radius: 4px;
     opacity: 1;
     z-index: 999;

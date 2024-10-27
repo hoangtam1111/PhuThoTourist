@@ -95,101 +95,26 @@
                     <div class="header col-3 text-center"
                         style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;">Tải tài liệu</div>
                 </div>
-                <div class="row mt-2">
-                    <div class="body col-1 text-center"
-                        style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">1</div>
-                    <div class="body col-5">Khám phá Hội An - Việt Nam</div>
-                    <div class="body col-3">03/03/12 22:43</div>
-                    <div class="body col-3 text-center"
-                        style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"><i class="fa fa-download"
-                            aria-hidden="true"></i></div>
-                </div>
-
-                <div class="row mt-2">
-                    <div class="body col-1 text-center"
-                        style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">2</div>
-                    <div class="body col-5">Khám phá Hội An - Việt Nam</div>
-                    <div class="body col-3">03/03/12 22:43</div>
-                    <div class="body col-3 text-center"
-                        style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"><i class="fa fa-download"
-                            aria-hidden="true"></i></div>
-                </div>
-                <div class="row mt-2">
-                    <div class="body col-1 text-center"
-                        style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">3</div>
-                    <div class="body col-5">Khám phá Hội An - Việt Nam</div>
-                    <div class="body col-3">03/03/12 22:43</div>
-                    <div class="body col-3 text-center"
-                        style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"><i class="fa fa-download"
-                            aria-hidden="true"></i></div>
-                </div>
-                <div class="row mt-2">
-                    <div class="body col-1 text-center"
-                        style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">4</div>
-                    <div class="body col-5">Khám phá Hội An - Việt Nam</div>
-                    <div class="body col-3">03/03/12 22:43</div>
-                    <div class="body col-3 text-center"
-                        style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"><i class="fa fa-download"
-                            aria-hidden="true"></i></div>
-                </div>
-                <div class="row mt-2">
-                    <div class="body col-1 text-center"
-                        style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">5</div>
-                    <div class="body col-5">Khám phá Hội An - Việt Nam</div>
-                    <div class="body col-3">03/03/12 22:43</div>
-                    <div class="body col-3 text-center"
-                        style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"><i class="fa fa-download"
-                            aria-hidden="true"></i></div>
-                </div>
-                <div class="row mt-2">
-                    <div class="body col-1 text-center"
-                        style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">6</div>
-                    <div class="body col-5">Khám phá Hội An - Việt Nam</div>
-                    <div class="body col-3">03/03/12 22:43</div>
-                    <div class="body col-3 text-center"
-                        style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"><i class="fa fa-download"
-                            aria-hidden="true"></i></div>
-                </div>
-                <div class="row mt-2">
-                    <div class="body col-1 text-center"
-                        style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">7</div>
-                    <div class="body col-5">Khám phá Hội An - Việt Nam</div>
-                    <div class="body col-3">03/03/12 22:43</div>
-                    <div class="body col-3 text-center"
-                        style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"><i class="fa fa-download"
-                            aria-hidden="true"></i></div>
-                </div>
-                <div class="row mt-2">
-                    <div class="body col-1 text-center"
-                        style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">8</div>
-                    <div class="body col-5">Khám phá Hội An - Việt Nam</div>
-                    <div class="body col-3">03/03/12 22:43</div>
-                    <div class="body col-3 text-center"
-                        style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"><i class="fa fa-download"
-                            aria-hidden="true"></i></div>
-                </div>
-                <div class="row mt-2">
-                    <div class="body col-1 text-center"
-                        style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">9</div>
-                    <div class="body col-5">Khám phá Hội An - Việt Nam</div>
-                    <div class="body col-3">03/03/12 22:43</div>
-                    <div class="body col-3 text-center"
-                        style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"><i class="fa fa-download"
-                            aria-hidden="true"></i></div>
-                </div>
-                <div class="row mt-2">
-                    <div class="body col-1 text-center"
-                        style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">10</div>
-                    <div class="body col-5">Khám phá Hội An - Việt Nam</div>
-                    <div class="body col-3">03/03/12 22:43</div>
-                    <div class="body col-3 text-center"
-                        style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"><i class="fa fa-download"
-                            aria-hidden="true"></i></div>
-                </div>
+                @foreach ($posts as $post)
+                    <div class="row mt-2">
+                        <div class="body col-1 text-center"
+                            style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">{{ $post->id }}</div>
+                        <div class="body col-5">{{ $post->title }}</div>
+                        <div class="body col-3">{{ $post->date }}</div>
+                        <div class="body col-3 text-center"
+                            style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
+                            <a href="{{ asset('files/' . $post->file) }}"
+                                download="{{ asset('files/' . $post->file) }}">
+                                <i class="fa fa-download" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
             </div>
             <div class="pages d-flex justify-content-between">
                 <div class="num-of-page">
-                    Hiển thị <input type="text" class="num" value="10" min="5"> câu trả lời trong mỗi
+                    Hiển thị <input type="text" class="num" value="{{ $page_size ?? 10 }}" min="5"> câu
+                    trả lời trong mỗi
                     trang
                 </div>
                 <div class="list-page d-flex justify-content-center align-items-center">

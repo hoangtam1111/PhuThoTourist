@@ -105,8 +105,11 @@
 .content .recruiment .description{
     font-size: 13px;
     color: #666666;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
 }
-.content .recruiment button{
+.content .recruiment a{
     background-color: #0054A6;
     border-radius: 6px;
     width: 100%;
@@ -118,7 +121,8 @@
     margin-top: 12px;
 }
 
-.content .list-page div{
+.content .list-page a{
+    text-decoration: none;
     width: 32px;
     height: 32px;
     border-radius: 6px;

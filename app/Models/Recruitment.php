@@ -11,7 +11,9 @@ class Recruitment extends Model
     protected $table = 'recruitments';
     protected $fillable=[
         'id',
+        'state',
         'location',
+        'quantity',
         'address',
         'job_description',
         'date',

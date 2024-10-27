@@ -20,12 +20,13 @@
                             <span>Lĩnh vực</span>
                         </div>
                         <div class="list-field d-flex flex-wrap">
-                            <div class="active">Hướng dẫn viên</div>
-                            <div>Kinh doanh</div>
-                            <div>Kĩ sư xây dựng</div>
-                            <div>Nhân viên kế toán</div>
-                            <div>Nhân viên kĩ thuật</div>
-                            <div>Nhân viên phục vụ</div>
+                            @foreach ($fields as $field)
+                                @if ($field->id == $field_id)
+                                    <div class="active">{{ $field->name }}</div>
+                                @else
+                                    <div>{{ $field->name }}</div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                     <div class="field mb-3">
@@ -34,10 +35,13 @@
                             <span>Hình thức làm việc</span>
                         </div>
                         <div class="list-field d-flex flex-wrap">
-                            <div class="active">Bán thời gian</div>
-                            <div>Nhân viên chính thức</div>
-                            <div>Theo ca</div>
-                            <div>Thực tập</div>
+                            @foreach ($type_works as $type_work)
+                                @if ($type_work->id == $type_work_id)
+                                    <div class="active">{{ $type_work->name }}</div>
+                                @else
+                                    <div>{{ $type_work->name }}</div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                     <div class="field mb-3">
@@ -46,273 +50,60 @@
                             <span>Nơi làm việc</span>
                         </div>
                         <div class="list-field d-flex flex-wrap">
-                            <div class="active">Cà Phê Vườn Đá</div>
-                            <div>NH Thủy Tạ Đầm Sen</div>
-                            <div>KDL Sinh Thái Vàm Sát</div>
-                            <div>CVVH Đầm Sen</div>
-                            <div>Khách sạn Ngọc Lan</div>
-                            <div>NH Thủy Tạ Đầm Sen</div>
-                            <div>CVVH Đầm Sen</div>
-                            <div>Khách sạn Ngọc Lan</div>
+                            @foreach ($working_places as $working_place)
+                                @if ($working_place->id == $working_place_id)
+                                    <div class="active">{{ $working_place->name }}</div>
+                                @else
+                                    <div>{{ $working_place->name }}</div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
-                    <img src="./img-background.png" class="img-background" alt="">
+                    <img src="{{ asset('image/background/img-background.png') }}" class="img-background" alt="">
                 </div>
             </div>
             <div class="col-9">
                 <div class="row">
-                    <div class="col-4 mb-4">
-                        <div class="recruiment ">
-                            <div class="title d-flex flex-wrap">
-                                <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
-                                <div class="text-start">
-                                    <div class="name">Nhân viên thiết kế đồ họa</div>
-                                    <div class="type">Nhân viên chính thức</div>
-                                    <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> CVVH Đầm Sen
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="time">
-                                            <i class="fa fa-clock-o" aria-hidden="true"></i> 2 tuần trước
-                                        </div>
-                                        <div class="state green">
-                                            <span>Đang tuyển</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail text-start">Mô tả công việc:</div>
-                            <div class="description text-start">
-                                Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh doanh lữ hành. Yêu cầu: Tốt
-                                nghiệp CĐ, ĐH chuyên ngành Du lich, QT kinh doanh, Marketing. Am hiểu tâm lý ...
-                            </div>
-                            <button>Xem chi tiết</button>
-                        </div>
-                    </div>
-                    <div class="col-4 mb-4">
-                        <div class="recruiment ">
-                            <div class="title d-flex flex-wrap">
-                                <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
-                                <div class="text-start">
-                                    <div class="name">Nhân viên thiết kế đồ họa</div>
-                                    <div class="type">Nhân viên chính thức</div>
-                                    <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> CVVH Đầm Sen
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="time">
-                                            <i class="fa fa-clock-o" aria-hidden="true"></i> 2 tuần trước
-                                        </div>
-                                        <div class="state red">
-                                            <span>Đang tuyển</span>
+                    @foreach ($recruitments as $recruitment)
+                        <div class="col-4 mb-4">
+                            <div class="recruiment ">
+                                <div class="title d-flex flex-wrap">
+                                    <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
+                                    <div class="text-start">
+                                        <a href="{{ route('recruitment', $recruitment->id) }}">
+                                            <span class="name">{{ $recruitment->name }}</span>
+                                        </a>
+                                        <div class="type">{{ $recruitment->type_work->name }}</div>
+                                        <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            {{ $recruitment->working_place->name }}</div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $recruitment->date }}
+                                            </div>
+
+                                            <div class="state {{ $recruitment->state == 0 ? 'green' : 'red' }} ">
+                                                <span>{{ $recruitment->state == 0 ? 'Đang tuyển' : 'Đã tuyển' }}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="detail text-start">Mô tả công việc:</div>
-                            <div class="description text-start">
-                                Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh doanh lữ hành. Yêu cầu: Tốt
-                                nghiệp CĐ, ĐH chuyên ngành Du lich, QT kinh doanh, Marketing. Am hiểu tâm lý ...
-                            </div>
-                            <button>Xem chi tiết</button>
-                        </div>
-                    </div>
-                    <div class="col-4 mb-4">
-                        <div class="recruiment ">
-                            <div class="title d-flex flex-wrap">
-                                <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
-                                <div class="text-start">
-                                    <div class="name">Nhân viên thiết kế đồ họa</div>
-                                    <div class="type">Nhân viên chính thức</div>
-                                    <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> CVVH Đầm Sen
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="time">
-                                            <i class="fa fa-clock-o" aria-hidden="true"></i> 2 tuần trước
-                                        </div>
-                                        <div class="state green">
-                                            <span>Đang tuyển</span>
-                                        </div>
-                                    </div>
+                                <div class="detail text-start">Mô tả công việc:</div>
+                                <div class="description text-start">
+                                    {{ $recruitment->description }}
                                 </div>
+                                <a href="{{ route('recruitment', $recruitment->id) }}">Xem chi tiết</a>
                             </div>
-                            <div class="detail text-start">Mô tả công việc:</div>
-                            <div class="description text-start">
-                                Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh doanh lữ hành. Yêu cầu: Tốt
-                                nghiệp CĐ, ĐH chuyên ngành Du lich, QT kinh doanh, Marketing. Am hiểu tâm lý ...
-                            </div>
-                            <button>Xem chi tiết</button>
                         </div>
-                    </div>
-                    <div class="col-4 mb-4">
-                        <div class="recruiment ">
-                            <div class="title d-flex flex-wrap">
-                                <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
-                                <div class="text-start">
-                                    <div class="name">Nhân viên thiết kế đồ họa</div>
-                                    <div class="type">Nhân viên chính thức</div>
-                                    <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> CVVH Đầm
-                                        Sen</div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="time">
-                                            <i class="fa fa-clock-o" aria-hidden="true"></i> 2 tuần trước
-                                        </div>
-                                        <div class="state green">
-                                            <span>Đang tuyển</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail text-start">Mô tả công việc:</div>
-                            <div class="description text-start">
-                                Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh doanh lữ hành. Yêu cầu: Tốt
-                                nghiệp CĐ, ĐH chuyên ngành Du lich, QT kinh doanh, Marketing. Am hiểu tâm lý ...
-                            </div>
-                            <button>Xem chi tiết</button>
-                        </div>
-                    </div>
-                    <div class="col-4 mb-4">
-                        <div class="recruiment ">
-                            <div class="title d-flex flex-wrap">
-                                <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
-                                <div class="text-start">
-                                    <div class="name">Nhân viên thiết kế đồ họa</div>
-                                    <div class="type">Nhân viên chính thức</div>
-                                    <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> CVVH Đầm
-                                        Sen</div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="time">
-                                            <i class="fa fa-clock-o" aria-hidden="true"></i> 2 tuần trước
-                                        </div>
-                                        <div class="state red">
-                                            <span>Đang tuyển</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail text-start">Mô tả công việc:</div>
-                            <div class="description text-start">
-                                Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh doanh lữ hành. Yêu cầu: Tốt
-                                nghiệp CĐ, ĐH chuyên ngành Du lich, QT kinh doanh, Marketing. Am hiểu tâm lý ...
-                            </div>
-                            <button>Xem chi tiết</button>
-                        </div>
-                    </div>
-                    <div class="col-4 mb-4">
-                        <div class="recruiment ">
-                            <div class="title d-flex flex-wrap">
-                                <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
-                                <div class="text-start">
-                                    <div class="name">Nhân viên thiết kế đồ họa</div>
-                                    <div class="type">Nhân viên chính thức</div>
-                                    <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> CVVH Đầm
-                                        Sen</div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="time">
-                                            <i class="fa fa-clock-o" aria-hidden="true"></i> 2 tuần trước
-                                        </div>
-                                        <div class="state green">
-                                            <span>Đang tuyển</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail text-start">Mô tả công việc:</div>
-                            <div class="description text-start">
-                                Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh doanh lữ hành. Yêu cầu: Tốt
-                                nghiệp CĐ, ĐH chuyên ngành Du lich, QT kinh doanh, Marketing. Am hiểu tâm lý ...
-                            </div>
-                            <button>Xem chi tiết</button>
-                        </div>
-                    </div>
-                    <div class="col-4 mb-4">
-                        <div class="recruiment ">
-                            <div class="title d-flex flex-wrap">
-                                <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
-                                <div class="text-start">
-                                    <div class="name">Nhân viên thiết kế đồ họa</div>
-                                    <div class="type">Nhân viên chính thức</div>
-                                    <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> CVVH Đầm
-                                        Sen</div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="time">
-                                            <i class="fa fa-clock-o" aria-hidden="true"></i> 2 tuần trước
-                                        </div>
-                                        <div class="state green">
-                                            <span>Đang tuyển</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail text-start">Mô tả công việc:</div>
-                            <div class="description text-start">
-                                Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh doanh lữ hành. Yêu cầu: Tốt
-                                nghiệp CĐ, ĐH chuyên ngành Du lich, QT kinh doanh, Marketing. Am hiểu tâm lý ...
-                            </div>
-                            <button>Xem chi tiết</button>
-                        </div>
-                    </div>
-                    <div class="col-4 mb-4">
-                        <div class="recruiment ">
-                            <div class="title d-flex flex-wrap">
-                                <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
-                                <div class="text-start">
-                                    <div class="name">Nhân viên thiết kế đồ họa</div>
-                                    <div class="type">Nhân viên chính thức</div>
-                                    <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> CVVH Đầm
-                                        Sen</div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="time">
-                                            <i class="fa fa-clock-o" aria-hidden="true"></i> 2 tuần trước
-                                        </div>
-                                        <div class="state green">
-                                            <span>Đang tuyển</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail text-start">Mô tả công việc:</div>
-                            <div class="description text-start">
-                                Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh doanh lữ hành. Yêu cầu: Tốt
-                                nghiệp CĐ, ĐH chuyên ngành Du lich, QT kinh doanh, Marketing. Am hiểu tâm lý ...
-                            </div>
-                            <button>Xem chi tiết</button>
-                        </div>
-                    </div>
-                    <div class="col-4 mb-4">
-                        <div class="recruiment ">
-                            <div class="title d-flex flex-wrap">
-                                <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
-                                <div class="text-start">
-                                    <div class="name">Nhân viên thiết kế đồ họa</div>
-                                    <div class="type">Nhân viên chính thức</div>
-                                    <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> CVVH Đầm
-                                        Sen</div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="time">
-                                            <i class="fa fa-clock-o" aria-hidden="true"></i> 2 tuần trước
-                                        </div>
-                                        <div class="state green">
-                                            <span>Đang tuyển</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail text-start">Mô tả công việc:</div>
-                            <div class="description text-start">
-                                Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh doanh lữ hành. Yêu cầu: Tốt
-                                nghiệp CĐ, ĐH chuyên ngành Du lich, QT kinh doanh, Marketing. Am hiểu tâm lý ...
-                            </div>
-                            <button>Xem chi tiết</button>
-                        </div>
-                    </div>
+                    @endforeach
                     <div class="col-12">
                         <div class="list-page d-flex justify-content-center align-items-center">
-                            <div><i class="fa fa-caret-left" aria-hidden="true"></i></div>
-                            <div class="active">1</div>
-                            <div>2</div>
-                            <div>3</div>
-                            <div>...</div>
-                            <div>10</div>
-                            <div><i class="fa fa-caret-right" aria-hidden="true"></i></div>
+                            <a><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+                            <a href="" class="active">1</a>
+                            <a href="">2</a>
+                            <a href="">3</a>
+                            <a href="">...</a>
+                            <a href="">10</a>
+                            <a href=""><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('post_id')->constrained()->cascadeOnDelete();
             $table->string('image');
-            $table->binary('active');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

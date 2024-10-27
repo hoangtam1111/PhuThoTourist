@@ -1,10 +1,14 @@
 /* Type */
+a{
+    text-decoration: none;
+}
 .type-post{
     border-radius: 12px;
-    background-color: white;
+    background-color: #b2f1c7b2;
     padding: 24px;
     height: 98%;
     position: relative;
+    padding-top: 12px;
 }
 .type-post .head{
     font-size: 24px;
@@ -36,6 +40,10 @@
     color: white;
     font-weight: 700;
 }
+.type-post .list-type li.active span {
+    color: white;
+    font-weight: 700;
+}
 .type-post img{
     position: absolute;
     bottom: 0;
@@ -44,7 +52,7 @@
 }
 /* Filter */
 .filter {
-    background-color: wheat;
+    background-color: #b2f1c7b2;
     padding: 12px;
     border-radius: 12px;
 }

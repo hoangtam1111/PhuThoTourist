@@ -4,12 +4,12 @@
     <!-- Content -->
     <div class="container mt-5 mb-5 content text-center">
         <div class="title text-start">
-            Kết quả đấu giá giữ xe tại CVVH Đầm Sen 2022
+            {{ $post->title }}
         </div>
         <div class="time text-start">
-            by tuyendung in on Tháng Năm 21, 2020
+            by tuyendung in on {{ $post->date }}
         </div>
-        <img src="{{ asset('image/document/dedtail.png') }}" alt="" class="img-detail mt-4">
+        <img src="{{ asset('image/post/' . $post->image) }}" alt="" class="img-detail mt-4">
         <div class="text text-start">
             <p>Công ty Cổ phần Dịch vụ Du lịch Phú Thọ xin thông báo đến các đơn vị tham gia đấu giá cạnh tranh hạng mục
                 “Hợp tác giữ xe 02 – 04 bánh tại Công viên văn hóa Đầm Sen (Số 03 Hòa Bình, Phường 03, Quận 11, TP.HCM), kết
@@ -18,7 +18,7 @@
                 <li>Tên hạng mục đấu giá: Hợp tác giữ xe 02 -04 bánh.</li>
                 <li>Giá khởi điểm được duyệt: 241.667.000 đồng/tháng (đã bao gồm thuế GTGT).</li>
                 <li>Bên mời đấu giá: Công ty Cổ phần Dịch vụ Du lịch Phú Thọ (Địa chỉ: Số 15 đường số 2 cư xá Lữ Gia, Phường
-                    15, Quận 11, TP.HCM)./li>
+                    15, Quận 11, TP.HCM).</li>
                 <li>Địa điểm thực hiện: Công viên văn hóa Đầm Sen.</li>
                 <li>Hình thức lựa chọn đơn vị: Đấu giá cạnh tranh</li>
             </ul>
@@ -44,102 +44,37 @@
             <p>Thông báo này là cơ sở để ký kết hợp đồng với nhà cung cấp trúng thầu đúng theo quy định.Trân trọng.</p>
             <p>Chi tiết xem trong văn bản đính kèm</p>
         </div>
-        <iframe class="file" src="./file.pdf"></iframe>
+        @if (!empty($post->file))
+            <iframe class="file" src="{{ asset('files/' . $post->file) }}"></iframe>
+        @endif
         <div class="related-posts mt-4">
             <div class="title text-start mb-2">Bài viết liên quan</div>
             <div class="row">
-                <div class="col-3">
-                    <div class="card">
-                        <img src="{{ asset('image/post/post1.png') }}" class="card-img-top" alt="...">
-                        <div class="text-start p-2">
-                            <div class="d-flex align-items-center role">Admin <div class="circle ms-1"></div>
+                @foreach ($posts as $post)
+                    <div class="col-3">
+                        <div class="card">
+                            <img src="{{ asset('image/post/' . $post->image) }}" class="card-img-top" alt="...">
+                            <div class="text-start p-2">
+                                <div class="d-flex align-items-center role">Admin <div class="circle ms-1"></div>
+                                </div>
+                                <div class="title mb-2">{{ $post->title }}
+                                </div>
                             </div>
-                            <div class="title mb-2">Thông báo kết quả lựa chọn nhà thầu 2 màn hình Led P4 Outdoor Fullcolor
-                            </div>
-                        </div>
-                        <div class="ps-2">
-                            <div class="action text-start">
-                                <span>Sự kiện</span>
-                                <span>Thông báo</span>
-                                <span>Tin tức</span>
-                            </div>
-                            <div class="information d-flex align-items-center mb-3 mt-2">
-                                <div class="view">10N lượt xem</div>
-                                <div class="circle-gray ms-1 me-1"></div>
-                                <div class="date">20/02/2022</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card">
-                        <img src="{{ asset('image/post/post1.png') }}" class="card-img-top" alt="...">
-                        <div class="text-start p-2">
-                            <div class="d-flex align-items-center role">Admin <div class="circle ms-1"></div>
-                            </div>
-                            <div class="title mb-2">Thông báo kết quả lựa chọn nhà thầu 2 màn hình Led P4 Outdoor Fullcolor
-                            </div>
-                        </div>
-                        <div class="ps-2">
-                            <div class="action text-start">
-                                <span>Sự kiện</span>
-                                <span>Thông báo</span>
-                                <span>Tin tức</span>
-                            </div>
-                            <div class="information d-flex align-items-center mb-3 mt-2">
-                                <div class="view">10N lượt xem</div>
-                                <div class="circle-gray ms-1 me-1"></div>
-                                <div class="date">20/02/2022</div>
+                            <div class="ps-2">
+                                <div class="action text-start">
+                                    @foreach ($post->typePost()->get() as $detail)
+                                        <span>{{ $detail->name }}</span>
+                                    @endforeach
+                                </div>
+                                <div class="information d-flex align-items-center mb-3 mt-2">
+                                    <div class="view">{{ $post->view }} lượt xem</div>
+                                    <div class="circle-gray ms-1 me-1"></div>
+                                    <div class="date">{{ $post->date }}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-3">
-                    <div class="card">
-                        <img src="{{ asset('image/post/post1.png') }}" class="card-img-top" alt="...">
-                        <div class="text-start p-2">
-                            <div class="d-flex align-items-center role">Admin <div class="circle ms-1"></div>
-                            </div>
-                            <div class="title mb-2">Thông báo kết quả lựa chọn nhà thầu 2 màn hình Led P4 Outdoor Fullcolor
-                            </div>
-                        </div>
-                        <div class="ps-2">
-                            <div class="action text-start">
-                                <span>Sự kiện</span>
-                                <span>Thông báo</span>
-                                <span>Tin tức</span>
-                            </div>
-                            <div class="information d-flex align-items-center mb-3 mt-2">
-                                <div class="view">10N lượt xem</div>
-                                <div class="circle-gray ms-1 me-1"></div>
-                                <div class="date">20/02/2022</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card">
-                        <img src="{{ asset('image/post/post1.png') }}" class="card-img-top" alt="...">
-                        <div class="text-start p-2">
-                            <div class="d-flex align-items-center role">Admin <div class="circle ms-1"></div>
-                            </div>
-                            <div class="title mb-2">Thông báo kết quả lựa chọn nhà thầu 2 màn hình Led P4 Outdoor Fullcolor
-                            </div>
-                        </div>
-                        <div class="ps-2">
-                            <div class="action text-start">
-                                <span>Sự kiện</span>
-                                <span>Thông báo</span>
-                                <span>Tin tức</span>
-                            </div>
-                            <div class="information d-flex align-items-center mb-3 mt-2">
-                                <div class="view">10N lượt xem</div>
-                                <div class="circle-gray ms-1 me-1"></div>
-                                <div class="date">20/02/2022</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@ class CentralServiceRepository implements CentralServiceInterface
 {
     public function getCentralService($id)
     {
-        return CentralService::find($id);
+        return CentralService::find($id) ;
     }
     public function getAllCentralService(){
         return CentralService::get();

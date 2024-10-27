@@ -22,7 +22,7 @@
                 <span>Đang tuyển</span>
             </div>
         </div>
-        <img src="./detail-recruiment.png" width="100%" alt="">
+        <img src="{{ asset('image/recruitment/detail-recruiment.png') }}" width="100%" alt="">
         <div class="detail">
             <div class="header text-start">Chi tiết tin tuyển dụng</div>
             <table class="table table-bordered text-start">

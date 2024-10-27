@@ -56,83 +56,39 @@
                 <p class="text-light mt-3 mb-4">Hãy cùng chúng tôi chia sẻ những bài viết mới với các thông tin về những sản
                     phẩm du lịch</p>
                 <div class="row justify-content-center">
-                    <div class="col-3">
-                        <div class="card">
-                            <img src="{{ asset('image/post/post1.png') }}" class="card-img-top" alt="...">
-                            <div class="text-start p-3">
-                                <div class="d-flex align-items-center role mb-2">Admin <div class="circle ms-1"></div>
-                                </div>
-                                <div class="title mb-2">Thông báo kết quả lựa chọn nhà thầu 2 màn hình Led P4 Outdoor
-                                    Fullcolor</div>
-                                <p class="text">Công ty Cổ phần Dịch vụ Du lịch Phú Thọ thông báo đến các nhà thầu tham
-                                    gia chào hàng cạnh tranh Gói thầu: Cung cấp, lắp đặt 02 màn..</p>
-                            </div>
-                            <div class="ps-3">
-                                <div class="action text-start">
-                                    <button>Sự kiện</button>
-                                    <button>Thông báo</button>
-                                    <button>Tin tức</button>
-                                </div>
-                                <div class="information d-flex align-items-center mb-3">
-                                    <div class="view">10N lượt xem</div>
-                                    <div class="circle-gray ms-1 me-1"></div>
-                                    <div class="date">20/02/2022</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="card">
-                            <img src="{{ asset('image/post/post1.png') }}" class="card-img-top" alt="...">
-                            <div class="text-start p-3">
-                                <div class="d-flex align-items-center role mb-2">Admin <div class="circle ms-1"></div>
-                                </div>
-                                <div class="title mb-2">Thông báo kết quả lựa chọn nhà thầu 2 màn hình Led P4 Outdoor
-                                    Fullcolor</div>
-                                <p class="text">Công ty Cổ phần Dịch vụ Du lịch Phú Thọ thông báo đến các nhà thầu tham
-                                    gia chào hàng cạnh tranh Gói thầu: Cung cấp, lắp đặt 02 màn..</p>
-                            </div>
-                            <div class="ps-3">
-                                <div class="action text-start">
-                                    <button>Sự kiện</button>
-                                    <button>Thông báo</button>
-                                    <button>Tin tức</button>
-                                </div>
-                                <div class="information d-flex align-items-center mb-3">
-                                    <div class="view">10N lượt xem</div>
-                                    <div class="circle-gray ms-1 me-1"></div>
-                                    <div class="date">20/02/2022</div>
+                    @if (!empty($newPosts))
+                        @foreach ($newPosts as $newPost)
+                            <div class="col-3">
+                                <div class="card">
+                                    <img src="{{ asset('image/post/' . $newPost->image) }}" class="card-img-top"
+                                        alt="...">
+                                    <div class="text-start p-3">
+                                        <div class="d-flex align-items-center role mb-2">Admin <div class="circle ms-1">
+                                            </div>
+                                        </div>
+                                        <a href="{{ route('detail_document', $newPost->id) }}">
+                                            <div class="title mb-2">{{ $newPost->title }}</div>
+                                        </a>
+                                        <p class="text">{{ $newPost->description }}</p>
+                                    </div>
+                                    <div class="ps-3">
+                                        <div class="action text-start">
+                                            @foreach ($newPost->typePost()->get() as $detail)
+                                                <button>{{ $detail->name }}</button>
+                                            @endforeach
+                                        </div>
+                                        <div class="information d-flex align-items-center mb-3">
+                                            <div class="view">{{ $newPost->view }} lượt xem</div>
+                                            <div class="circle-gray ms-1 me-1"></div>
+                                            <div class="date">{{ $newPost->date }}</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="card">
-                            <img src="{{ asset('image/post/post1.png') }}" class="card-img-top" alt="...">
-                            <div class="text-start p-3">
-                                <div class="d-flex align-items-center role mb-2">Admin <div class="circle ms-1"></div>
-                                </div>
-                                <div class="title mb-2">Thông báo kết quả lựa chọn nhà thầu 2 màn hình Led P4 Outdoor
-                                    Fullcolor</div>
-                                <p class="text">Công ty Cổ phần Dịch vụ Du lịch Phú Thọ thông báo đến các nhà thầu tham
-                                    gia chào hàng cạnh tranh Gói thầu: Cung cấp, lắp đặt 02 màn..</p>
-                            </div>
-                            <div class="ps-3">
-                                <div class="action text-start">
-                                    <button>Sự kiện</button>
-                                    <button>Thông báo</button>
-                                    <button>Tin tức</button>
-                                </div>
-                                <div class="information d-flex align-items-center mb-3">
-                                    <div class="view">10N lượt xem</div>
-                                    <div class="circle-gray ms-1 me-1"></div>
-                                    <div class="date">20/02/2022</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
-                <a href="#" class="btn btn-posts mt-4 mb-4">Xem thêm bài viết</a>
+                <a href="{{ route('post') }}" class="btn btn-posts mt-4 mb-4">Xem thêm bài viết</a>
             </div>
             <div class="central-service text-center pt-4 pb-5 mb-4">
                 <p class="title ">LĨNH VỰC HOẠT ĐỘNG</p>
@@ -141,36 +97,18 @@
                 <p class="text mt-3 mb-4">3 dịch vụ trọng tâm của Phuthotourist là vui chơi giải trí, nhà hàng – khách sạn,
                     và dịch vụ lữ hành</p>
                 <div class="row justify-content-center">
-                    <div class="col-3">
-                        <div class="card">
-                            <img src="{{ asset('image/central/central1.png') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Vui chơi giải trí</h5>
-                                <p class="card-text">Với 2 khu giải trí nổi tiếng TP.HCM là Công viên văn hóa Đầm Sen, và
-                                    khu du lịch sinh thái Vàm Sát (H.Cần Giờ)...</p>
+                    @foreach ($centralServices as $central)
+                        <div class="col-3">
+                            <div class="card">
+                                <img src="{{ asset('image/central/' . $central->image) }}" class="card-img-top"
+                                    alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $central->title }}</h5>
+                                    <p class="card-text">{{ $central->description }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="card">
-                            <img src="{{ asset('image/central/central2.png') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Nhà hàng – Khách sạn</h5>
-                                <p class="card-text">Với hệ thống khách sạn Phú Thọ và Ngọc Lan đạt chuẩn 3 sao, chuyên
-                                    tiếp đón các đoàn thể thao....</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="card">
-                            <img src="{{ asset('image/central/central3.png') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Dịch vụ Lữ hành</h5>
-                                <p class="card-text">Tổ chức các tour trong và ngoài nước với Trung tâm Dịch vụ du lịch Đầm
-                                    Sen. Ngoài ra Trung tâm còn thế mạnh là tổ chức...</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

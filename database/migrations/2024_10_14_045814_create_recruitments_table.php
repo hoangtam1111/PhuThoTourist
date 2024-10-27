@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('recruiments', function (Blueprint $table) {
+        Schema::create('recruitments', function (Blueprint $table) {
             $table->id();
+            $table->boolean('state');
             $table->string('location');
+            $table->integer('quantity')->default(1);
             $table->string('workplace');
             $table->text('address');
             $table->text('job_description');
