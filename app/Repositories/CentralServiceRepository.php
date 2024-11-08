@@ -27,6 +27,11 @@ class CentralServiceRepository implements CentralServiceInterface
         $CentralService=CentralService::find($id);
         $CentralService->update($data);
     }
+    public function updateStateCentralService($id){
+        $CentralService=CentralService::find($id);
+        $CentralService->state=!$CentralService->state;
+        $CentralService->save();
+    }
     public function deleteCentralService($id)
     {
         $CentralService = CentralService::find($id);

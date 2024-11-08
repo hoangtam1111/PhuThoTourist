@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories\Interfaces;
 interface ApplyWorkInterface{
+    public function getAllApplyWork();
     public function getApplyWork($id);
     public function getAllApplyOnWork($idRecruiment);
     public function insertApplyWork($data);

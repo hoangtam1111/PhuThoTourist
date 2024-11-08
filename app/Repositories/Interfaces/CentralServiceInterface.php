@@ -6,5 +6,6 @@ interface CentralServiceInterface{
     public function getAllCentralServiceActive();
     public function insertCentralService($data);
     public function updateCentralService($data,$id);
+    public function updateStateCentralService($id);
     public function deleteCentralService($id);
 }

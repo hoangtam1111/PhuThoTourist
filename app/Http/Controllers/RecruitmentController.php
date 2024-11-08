@@ -39,7 +39,7 @@ class RecruitmentController extends Controller
             'working_place_id'
         ));
     }
-    public function getRecruitment($id){
+    public function detail($id){
         $recruitment=$this->recruiment->getRecruitment($id);
         return view('recruitment', compact('recruitment'));
     }

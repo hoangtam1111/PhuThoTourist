@@ -26,6 +26,11 @@ class SliderRepository implements SliderInterface
         $Slider=Slider::find($id);
         $Slider->update($data);
     }
+    public function updateStateSlider($id){
+        $slider=Slider::find($id);
+        $slider->state=!$slider->state;
+        $slider->save();
+    }
     public function deleteSlider($id)
     {
         $Slider = Slider::find($id);

@@ -20,6 +20,6 @@ class Post extends Model
         'view'
     ];
     public function typePost(){
-        return $this->belongsToMany(TypePost::class, 'detail_type_posts', 'type_post_id', 'post_id');
+        return $this->belongsToMany(TypePost::class, 'detail_type_posts', 'post_id', 'type_post_id');
     }
 }

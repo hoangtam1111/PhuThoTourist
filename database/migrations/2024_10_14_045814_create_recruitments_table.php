@@ -13,19 +13,16 @@ return new class extends Migration
     {
         Schema::create('recruitments', function (Blueprint $table) {
             $table->id();
-            $table->boolean('state');
+            $table->boolean('state')->default(true);
             $table->string('location');
             $table->integer('quantity')->default(1);
-            $table->string('workplace');
             $table->text('address');
             $table->text('job_description');
             $table->date('date');
-            $table->string('working_time');
             $table->string('interest');
             $table->string('requirement');
             $table->string('age');
             $table->string('level');
-            $table->string('file');
             $table->foreignId('field_id')->constrained()->cascadeOnDelete();
             $table->foreignId('type_work_id')->constrained()->cascadeOnDelete();
             $table->foreignId('working_place_id')->constrained()->cascadeOnDelete();

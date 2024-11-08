@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('apply_works', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->binary('sex');
+            $table->boolean('sex');
             $table->date('dob');
             $table->text('place_of_birth');
             $table->string('current_residence');
@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('facebook');
             $table->string('level');
             $table->string('file_cv');
-            $table->string('long_day_work');
-            $table->string('overtime');
+            $table->tinyInteger('long_day_work');
+            $table->tinyInteger('overtime');
             $table->string('previous_workplace');
             $table->string('experience');
             $table->foreignId('recruitment_id')->constrained()->cascadeOnDelete();

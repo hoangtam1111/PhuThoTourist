@@ -7,6 +7,10 @@ use App\Models\ApplyWork;
 
 class ApplyWorkRepository implements ApplyWorkInterface
 {
+    public function getAllApplyWork()
+    {
+        return ApplyWork::get();
+    }
     public function getApplyWork($id)
     {
         return ApplyWork::find($id);

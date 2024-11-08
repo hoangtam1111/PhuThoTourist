@@ -13,7 +13,7 @@ class Slider extends Model
         'id',
         'image',
         'active',
-        'post_id'
+        'title',
     ];
     public function post(){
         return $this->belongsTo(Post::class);

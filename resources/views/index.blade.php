@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
     <!-- Navbar -->
     <div class="navbar">
         <img class="logo" src="{{ asset('image/logo/logo-phu-tho-3.png') }}" alt="">
@@ -11,7 +13,42 @@
         <i class="down fa fa-angle-double-down" aria-hidden="true"></i>
     </div>
     <!-- Slider -->
-
+    <div class="container">
+        <div class="slider-custom">
+            <div class="title text-center">
+                <h3>CÔNG TY CỔ PHẦN DỊCH VỤ DU LỊCH PHÚ THỌ</h3>
+                <h2>PHUTHOTOURIST</h3>
+                    <h4>Ngày thành lập 01/01/2019</h4>
+            </div>
+            <section id="slider">
+                <input type="radio" name="slider" id="s1">
+                <input type="radio" name="slider" id="s2">
+                <input type="radio" name="slider" id="s3" checked>
+                <input type="radio" name="slider" id="s4">
+                <input type="radio" name="slider" id="s5">
+                <label for="s1" id="slider1">
+                    <img src="{{ asset('image/sliders/image1.png') }}" height="500px" width="100%" alt="">
+                    <div class="text">Hơn 1000 bánh chưng lộc cho khách dâng hương tượng vua Hùng tại Đầm Sen</div>
+                </label>
+                <label for="s2" id="slider2">
+                    <img src="{{ asset('image/sliders/image1.png') }}" height="500px" width="100%" alt="">
+                    <div class="text">Hơn 1000 bánh chưng lộc cho khách dâng hương tượng vua Hùng tại Đầm Sen</div>
+                </label>
+                <label for="s3" id="slider3">
+                    <img src="{{ asset('image/sliders/image1.png') }}" height="500px" width="100%" alt="">
+                    <div class="text">Hơn 1000 bánh chưng lộc cho khách dâng hương tượng vua Hùng tại Đầm Sen</div>
+                </label>
+                <label for="s4" id="slider4">
+                    <img src="{{ asset('image/sliders/image1.png') }}" height="500px" width="100%" alt="">
+                    <div class="text">Hơn 1000 bánh chưng lộc cho khách dâng hương tượng vua Hùng tại Đầm Sen</div>
+                </label>
+                <label for="s5" id="slider5">
+                    <img src="{{ asset('image/sliders/image1.png') }}" height="500px" width="100%" alt="">
+                    <div class="text">Hơn 1000 bánh chưng lộc cho khách dâng hương tượng vua Hùng tại Đầm Sen</div>
+                </label>
+            </section>
+        </div>
+    </div>
     <!-- Content -->
     <div class="container mt-5 content">
         <div class="">
@@ -113,4 +150,13 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.carousel').carousel({
+                indicators: true
+            })
+        })
+    </script>
 @endsection

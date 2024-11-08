@@ -21,6 +21,7 @@ class HomeController extends Controller
         $sliders=$this->slider->getAllSliderActive();
         // $about=$this->about->getAbout()->post();
         $newPosts=$this->post->getNewPost(3);
+        // die($newPosts[1]->typePost()->get());
         $centralServices=$this->centralService->getAllCentralServiceActive();
         return view('index', compact('sliders', 'newPosts', 'centralServices'));
     }

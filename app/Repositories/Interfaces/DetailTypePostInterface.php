@@ -4,6 +4,6 @@ interface DetailTypePostInterface{
     public function getDetailTypePost($id);
     public function getAllDetailOnPost($idPost);
     public function insertDetailTypePost($data);
-    public function updateDetailTypePost($data,$id);
+    public function deleteDetailTypePostWithPostId($idPost);
     public function deleteDetailTypePost($id);
 }

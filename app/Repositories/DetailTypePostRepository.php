@@ -18,10 +18,8 @@ class DetailTypePostRepository implements DetailTypePostInterface
     {
         DetailTypePost::create($data);
     }
-    public function updateDetailTypePost($data, $id)
-    {
-        $DetailTypePost=DetailTypePost::find($id);
-        $DetailTypePost->update($data);
+    public function deleteDetailTypePostWithPostId($idPost){
+        DetailTypePost::where('post_id',$idPost)->delete();
     }
     public function deleteDetailTypePost($id)
     {
