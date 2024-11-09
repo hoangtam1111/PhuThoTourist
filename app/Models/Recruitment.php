@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -33,5 +34,13 @@ class Recruitment extends Model
     }
     public function working_place(){
         return $this->belongsTo(WorkingPlace::class);
+    }
+    public function getWeek($date){
+        $currentDate = now();
+        $targetDate = Carbon::parse($date);
+        return $currentDate->diffInWeeks($targetDate);
+    }
+    public function parseArray($string){
+        return explode("\n", $string);
     }
 }

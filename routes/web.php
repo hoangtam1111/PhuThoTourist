@@ -22,4 +22,4 @@ Route::get('/detail-document/{id}', [PostController::class,'detailDocument'])->n
 Route::get('post',[PostController::class, 'index'])->name('post');
 Route::get('/document',[PostController::class, 'document'])->name('document');
 Route::get('/recruitment',[RecruitmentController::class,'index'])->name('recruitments');
-Route::get('detail-recruitment/{id}',[RecruitmentController::class,'detail'])->name('detail-recruitment');
+Route::get('detail-recruitment/{id}',[RecruitmentController::class,'detail'])->name('detail_recruitment');

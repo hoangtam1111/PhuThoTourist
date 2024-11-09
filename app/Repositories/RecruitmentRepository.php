@@ -14,7 +14,7 @@ class RecruitmentRepository implements RecruitmentInterface
     {
         return Recruitment::find($id);
     }
-    public function getRecruitmentsWithFilter($field, $type_work, $working_place, $sizePage){
+    public function getRecruitmentsWithFilter($field, $type_work, $working_place, $sizePage, $currentPage){
         $query = Recruitment::query();
 
         if (!empty($field)) {
@@ -28,7 +28,13 @@ class RecruitmentRepository implements RecruitmentInterface
         if (!empty($working_place)) {
             $query->where('working_place_id', $working_place);
         }
-        return $query->paginate($sizePage);
+
+        $skip = ($currentPage - 1) * $sizePage;
+
+        // Sử dụng skip và take để giới hạn số lượng bản ghi trả về
+        $results = $query->skip($skip)->take($sizePage)->get();
+
+        return $results;
     }
     public function insertRecruitment($data)
     {

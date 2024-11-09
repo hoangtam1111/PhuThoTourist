@@ -60,7 +60,7 @@
 }
 .content .recruiment img{
     width: 26%;
-    margin: -12px -12px 30px;
+    margin:  0px -8px 24px;
 }
 
 .content .recruiment .name{
@@ -107,9 +107,11 @@
     color: #666666;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-.content .recruiment a{
+.content .recruiment .link{
     background-color: #0054A6;
     border-radius: 6px;
     width: 100%;
@@ -120,9 +122,11 @@
     padding: 6px;
     margin-top: 12px;
 }
-
-.content .list-page a{
+.content .recruiment {
     text-decoration: none;
+    color: white;
+}
+.content .list-page div{
     width: 32px;
     height: 32px;
     border-radius: 6px;

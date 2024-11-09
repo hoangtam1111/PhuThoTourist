@@ -9,18 +9,24 @@
                     <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
                 </div>
                 <div class="text">
-                    <div class="name">Nhân viên thiết kế đồ họa</div>
-                    <div class="type">Nhân viên chính thức</div>
+                    <div class="name">{{ $recruitment->location }}</div>
+                    <div class="type">{{ $recruitment->type_work()->first()->name }}</div>
 
-                    <span class="location me-3"><i class="fa fa-map-marker" aria-hidden="true"></i> CVVH Đầm Sen</span>
+                    <span class="location me-3"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $recruitment->working_place()->first()->name }}</span>
                     <span class="time">
-                        <i class="fa fa-clock-o" aria-hidden="true"></i> 2 tuần trước
+                        <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $recruitment->getWeek($recruitment->date) }} tuần trước
                     </span>
                 </div>
             </div>
-            <div class="state green">
-                <span>Đang tuyển</span>
-            </div>
+            @if ($recruitment->state==0)
+                <div class="state green">
+                    <span>Đang tuyển</span>
+                </div>
+            @else
+                <div class="state red">
+                    <span>Đã tuyển</span>
+                </div>
+            @endif
         </div>
         <img src="{{ asset('image/recruitment/detail-recruiment.png') }}" width="100%" alt="">
         <div class="detail">
@@ -28,29 +34,27 @@
             <table class="table table-bordered text-start">
                 <tr>
                     <td class="head">Vị trí</td>
-                    <td>Nhân viên thiết kế đồ họa</td>
+                    <td>{{ $recruitment->location }}</td>
                 </tr>
                 <tr>
                     <td class="head">Số lượng</td>
-                    <td>02 người</td>
+                    <td>{{ $recruitment->quantity }} người</td>
                 </tr>
                 <tr>
                     <td class="head">Nơi làm việc</td>
-                    <td>Công viên văn hóa Đầm Sen</td>
+                    <td>{{ $recruitment->working_place()->first()->name }}</td>
                 </tr>
                 <tr>
                     <td class="head">Địa chỉ làm việc</td>
-                    <td>3 Hòa Bình, Phường 3, Quận 11, TP.HCM</td>
+                    <td>{{ $recruitment->address }}</td>
                 </tr>
                 <tr>
                     <td class="head">Mô tả công việc</td>
                     <td>
                         <ul>
-                            <li>Thiết kế hình ảnh, brochure, banner, poster, pano, backdrop sân khấu, các loại vé mời … và
-                                các ấn phẩm phục vụ sự kiện, truyền thông của công viên.</li>
-                            <li>Chụp hình, quay phim, dựng video đơn giản.</li>
-                            <li>Lên phác thảo, trao đổi ý tưởng với quản lý và hoàn thiện thiết kế.</li>
-                            <li>Các chi tiết về công việc được trao đổi tại buổi phỏng vấn.</li>
+                            @foreach ($recruitment->parseArray($recruitment->job_description) as $string)
+                                <li>{{ $string }}</li>
+                            @endforeach
                         </ul>
                     </td>
                 </tr>
@@ -60,15 +64,15 @@
                 </tr>
                 <tr>
                     <td class="head">Giờ làm việc</td>
-                    <td>Giờ hành chính</td>
+                    <td>{{ $recruitment->type_work()->first()->name }}</td>
                 </tr>
                 <tr>
                     <td class="head">Quyền lợi</td>
                     <td>
                         <ul>
-                            <li>Được ký hợp đồng lao động, tham gia đầy đủ chế độ BHXH</li>
-                            <li>Thưởng tháng 13, 14, các ngày lễ, tết trong năm.</li>
-                            <li>Được phục vụ bữa ăn trưa tại nơi làm việc.</li>
+                            @foreach ($recruitment->parseArray($recruitment->interest) as $string)
+                                <li>{{ $string }}</li>
+                            @endforeach
                         </ul>
                     </td>
                 </tr>
@@ -76,19 +80,19 @@
                     <td class="head">Yêu cầu</td>
                     <td>
                         <ul>
-                            <li>Tốt nghiệp từ Cao đẳng chuyên ngành Mỹ thuật, Đồ họa....</li>
-                            <li>Sử dụng thành thạo các phần mềm thiết kế (Photoshop, Corel, Illustrator…).</li>
-                            <li>Có khả năng quay và dựng video hấp dẫn người xem</li>
+                            @foreach ($recruitment->parseArray($recruitment->requirement) as $string)
+                                <li>{{ $string }}</li>
+                            @endforeach
                         </ul>
                     </td>
                 </tr>
                 <tr>
                     <td class="head">Độ tuổi</td>
-                    <td>22 - 27 tuổi</td>
+                    <td>{{ $recruitment->age }}</td>
                 </tr>
                 <tr>
                     <td class="head">Trình độ</td>
-                    <td>Cao đẳng</td>
+                    <td>{{ $recruitment->level }}</td>
                 </tr>
                 <tr>
                     <td class="head">Hồ sơ gồm</td>
@@ -200,4 +204,16 @@
             </form>
         </div>
     </div>
+    <script>
+        function displayFileName() {
+            var fileInput = document.getElementById('file_cv');
+            var fileNameElement = document.getElementById('file-name');
+
+            if (fileInput.files.length > 0) {
+                fileNameElement.textContent = fileInput.files[0].name;
+            } else {
+                fileNameElement.textContent = '';
+            }
+        }
+    </script>
 @endsection

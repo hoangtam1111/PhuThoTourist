@@ -21,11 +21,7 @@
                         </div>
                         <div class="list-field d-flex flex-wrap">
                             @foreach ($fields as $field)
-                                @if ($field->id == $field_id)
-                                    <div class="active">{{ $field->name }}</div>
-                                @else
-                                    <div>{{ $field->name }}</div>
-                                @endif
+                                <div>{{ $field->name }}</div>
                             @endforeach
                         </div>
                     </div>
@@ -36,11 +32,7 @@
                         </div>
                         <div class="list-field d-flex flex-wrap">
                             @foreach ($type_works as $type_work)
-                                @if ($type_work->id == $type_work_id)
-                                    <div class="active">{{ $type_work->name }}</div>
-                                @else
-                                    <div>{{ $type_work->name }}</div>
-                                @endif
+                                <div>{{ $type_work->name }}</div>
                             @endforeach
                         </div>
                     </div>
@@ -51,11 +43,7 @@
                         </div>
                         <div class="list-field d-flex flex-wrap">
                             @foreach ($working_places as $working_place)
-                                @if ($working_place->id == $working_place_id)
-                                    <div class="active">{{ $working_place->name }}</div>
-                                @else
-                                    <div>{{ $working_place->name }}</div>
-                                @endif
+                                <div>{{ $working_place->name }}</div>
                             @endforeach
                         </div>
                     </div>
@@ -70,40 +58,40 @@
                                 <div class="title d-flex flex-wrap">
                                     <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
                                     <div class="text-start">
-                                        <a href="{{ route('recruitment', $recruitment->id) }}">
-                                            <span class="name">{{ $recruitment->name }}</span>
-                                        </a>
-                                        <div class="type">{{ $recruitment->type_work->name }}</div>
-                                        <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            {{ $recruitment->working_place->name }}</div>
+                                        <div class="name">{{ $recruitment->location }}</div>
+                                        <div class="type">{{ $recruitment->type_work()->first()->name}}</div>
+                                        <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $recruitment->working_place()->first()->name }}</div>
                                         <div class="d-flex justify-content-between">
                                             <div class="time">
-                                                <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $recruitment->date }}
+                                                <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $recruitment->getWeek($recruitment->date) }} tuần trước
                                             </div>
-
-                                            <div class="state {{ $recruitment->state == 0 ? 'green' : 'red' }} ">
-                                                <span>{{ $recruitment->state == 0 ? 'Đang tuyển' : 'Đã tuyển' }}</span>
+                                            <div class="state green">
+                                                <span>Đang tuyển</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="detail text-start">Mô tả công việc:</div>
                                 <div class="description text-start">
-                                    {{ $recruitment->description }}
+                                    {{ $recruitment->job_description }} ...
                                 </div>
-                                <a href="{{ route('recruitment', $recruitment->id) }}">Xem chi tiết</a>
+                                <a href="{{ route('detail_recruitment',$recruitment->id) }}">
+                                    <div class="link">
+                                        Xem chi tiết
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     @endforeach
                     <div class="col-12">
                         <div class="list-page d-flex justify-content-center align-items-center">
-                            <a><i class="fa fa-caret-left" aria-hidden="true"></i></a>
-                            <a href="" class="active">1</a>
-                            <a href="">2</a>
-                            <a href="">3</a>
-                            <a href="">...</a>
-                            <a href="">10</a>
-                            <a href=""><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                            <div><i class="fa fa-caret-left" aria-hidden="true"></i></div>
+                            <div class="active">1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>...</div>
+                            <div>10</div>
+                            <div><i class="fa fa-caret-right" aria-hidden="true"></i></div>
                         </div>
                     </div>
                 </div>

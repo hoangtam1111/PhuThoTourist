@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('file');
             $table->integer('view')->default(0);
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->date('date')->default(now());
             $table->timestamps();
         });
     }

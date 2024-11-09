@@ -59,7 +59,7 @@
                                                 <div class="d-flex align-items-center role">Admin <div class="circle ms-1">
                                                     </div>
                                                 </div>
-                                                <a href="{{ route('post', $post->id) }}">
+                                                <a href="{{ route('detail_document', $post->id) }}">
                                                     <div class="title mb-2">{{ $post->title }}</div>
                                                 </a>
                                             </div>

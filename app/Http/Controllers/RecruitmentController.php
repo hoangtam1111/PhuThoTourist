@@ -23,11 +23,12 @@ class RecruitmentController extends Controller
         $type_work=$request->input('tye_work', null);
         $working_place=$request->input('working_place', null);
 
-        $recruitments=$this->recruiment->getRecruitmentsWithFilter($field, $type_work, $working_place,$page);
+        $recruitments=$this->recruiment->getRecruitmentsWithFilter($field, $type_work, $working_place,9,$page);
         $fields=$this->field->getAllField();
         $type_works=$this->typeWork->getAllTypeWork();
         $working_places=$this->workingPlace->getAllWorkingPlace();
         $field_id=$field; $type_work_id=$type_work; $working_place_id=$working_place;
+        // die($recruitments);
         return view('recruitment', compact(
             'recruitments',
             'fields',
@@ -41,6 +42,7 @@ class RecruitmentController extends Controller
     }
     public function detail($id){
         $recruitment=$this->recruiment->getRecruitment($id);
-        return view('recruitment', compact('recruitment'));
+        // die($recruitment->type_work()->get());
+        return view('detail_recruitment', compact('recruitment'));
     }
 }
