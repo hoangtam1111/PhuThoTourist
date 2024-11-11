@@ -14,10 +14,10 @@ class WorkingPlaceController extends Controller
     }
     public function index(){
         $workingPlaces=$this->workingPlace->getAllWorkingPlace();
-        return view('', compact('workingPlaces'));
+        return view('admin.working-place.index', compact('workingPlaces'));
     }
     public function insert(){
-        return view();
+        return view('admin.working-place.insert');
     }
     public function postInsert(Request $request){
         $request->validate([
@@ -26,11 +26,11 @@ class WorkingPlaceController extends Controller
             'name.required' => 'Please enter a name working place'
         ]);
         $this->workingPlace->insertworkingPlace($request->all());
-        return redirect()->route('');
+        return redirect()->route('admin.working-place.index');
     }
     public function update($id){
         $workingPlace=$this->workingPlace->getWorkingPlace($id);
-        return view('', compact('workingPlace'));
+        return view('admin.working-place.update', compact('workingPlace'));
     }
     public function postUpdate(Request $request){
         $request->validate([
@@ -39,10 +39,10 @@ class WorkingPlaceController extends Controller
             'name.required' => 'Please enter a name workingPlace'
         ]);
         $this->workingPlace->updateWorkingPlace($request->all(),$request->get('id'));
-        return redirect()->route('');
+        return redirect()->route('admin.working-place.index');
     }
     public function delete($id){
         $this->workingPlace->deleteWorkingPlace($id);
-        return view('');
+        return view('admin.working-place.index');
     }
 }

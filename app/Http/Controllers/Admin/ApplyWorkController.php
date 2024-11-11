@@ -23,7 +23,7 @@ class ApplyWorkController extends Controller
         return view('',compact('recruitment_id','applyWorks'));
     }
     public function insert(){
-        return view();
+        return view('admin.apply-work.insert');
     }
     public function postInsert(Request $request){
         $request->validate([

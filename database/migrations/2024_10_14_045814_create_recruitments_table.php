@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('requirement');
             $table->string('age');
             $table->string('level');
+            $table->string('file');
             $table->foreignId('field_id')->constrained()->cascadeOnDelete();
             $table->foreignId('type_work_id')->constrained()->cascadeOnDelete();
             $table->foreignId('working_place_id')->constrained()->cascadeOnDelete();

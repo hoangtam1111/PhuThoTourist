@@ -14,10 +14,10 @@ class TypeWorkController extends Controller
     }
     public function index(){
         $typeWorks=$this->typeWork->getAlltypeWork();
-        return view('', compact('typeWorks'));
+        return view('admin.type-work.index', compact('typeWorks'));
     }
     public function insert(){
-        return view();
+        return view('admin.type-work.insert');
     }
     public function postInsert(Request $request){
         $request->validate([
@@ -26,11 +26,11 @@ class TypeWorkController extends Controller
             'name.required' => 'Please enter a name typeWork'
         ]);
         $this->typeWork->insertTypeWork($request->all());
-        return redirect()->route('');
+        return redirect()->route('admin.type-work.index');
     }
     public function update($id){
         $typeWork=$this->typeWork->gettypeWork($id);
-        return view('', compact('typeWork'));
+        return view('admin.type-work.update', compact('typeWork'));
     }
     public function postUpdate(Request $request){
         $request->validate([
@@ -39,10 +39,10 @@ class TypeWorkController extends Controller
             'name.required' => 'Please enter a name typeWork'
         ]);
         $this->typeWork->updateTypeWork($request->all(),$request->get('id'));
-        return redirect()->route('');
+        return redirect()->route('admin.type-work.index');
     }
     public function delete($id){
         $this->typeWork->deleteTypeWork($id);
-        return view('');
+        return view('admin.type-work.index');
     }
 }

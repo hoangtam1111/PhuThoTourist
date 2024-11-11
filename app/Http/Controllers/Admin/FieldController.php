@@ -14,10 +14,10 @@ class FieldController extends Controller
     }
     public function index(){
         $fields=$this->field->getAllField();
-        return view('', compact('fields'));
+        return view('admin.field.index', compact('fields'));
     }
     public function insert(){
-        return view();
+        return view('admin.field.insert');
     }
     public function postInsert(Request $request){
         $request->validate([
@@ -26,11 +26,11 @@ class FieldController extends Controller
             'name.required' => 'Please enter a name field'
         ]);
         $this->field->insertField($request->all());
-        return redirect()->route('');
+        return redirect()->route('admin.field.index');
     }
     public function update($id){
         $field=$this->field->getField($id);
-        return view('', compact('field'));
+        return view('admin.field.update', compact('field'));
     }
     public function postUpdate(Request $request){
         $request->validate([
@@ -38,11 +38,12 @@ class FieldController extends Controller
         ],[
             'name.required' => 'Please enter a name field'
         ]);
+        // die($request->get('id'));
         $this->field->updateField($request->all(),$request->get('id'));
-        return redirect()->route('');
+        return redirect()->route('admin.field.index');
     }
     public function delete($id){
         $this->field->deleteField($id);
-        return view('');
+        return redirect()->route('admin.field.index');
     }
 }

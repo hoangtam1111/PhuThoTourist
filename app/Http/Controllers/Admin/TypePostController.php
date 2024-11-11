@@ -14,10 +14,10 @@ class TypePostController extends Controller
     }
     public function index(){
         $typePosts=$this->typePost->getAllTypePost();
-        return view('', compact('typePosts'));
+        return view('admin.type-post.index', compact('typePosts'));
     }
     public function insert(){
-        return view();
+        return view('admin.type-post.insert');
     }
     public function postInsert(Request $request){
         $request->validate([
@@ -26,11 +26,11 @@ class TypePostController extends Controller
             'name.required' => 'Please enter a name working place'
         ]);
         $this->typePost->insertTypePost($request->all());
-        return redirect()->route('');
+        return redirect()->route('admin.type-post.index');
     }
     public function update($id){
         $typePost=$this->typePost->getTypePost($id);
-        return view('', compact('typePost'));
+        return view('admin.type-post.update', compact('typePost'));
     }
     public function postUpdate(Request $request){
         $request->validate([
@@ -39,10 +39,10 @@ class TypePostController extends Controller
             'name.required' => 'Please enter a name typePost'
         ]);
         $this->typePost->updateTypePost($request->all(),$request->get('id'));
-        return redirect()->route('');
+        return redirect()->route('admin.type-post.index');
     }
     public function delete($id){
         $this->typePost->deleteTypePost($id);
-        return view('');
+        return view('admin.type-post.index');
     }
 }
