@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FieldController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TypePostController;
 use App\Http\Controllers\Admin\TypeWorkController;
 use App\Http\Controllers\Admin\WorkingPlaceController;
@@ -60,12 +61,20 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/delete/{id}',[TypeWorkController::class,'delete'])->name('delete');
     });
     // Working Place
-    Route::prefix('working-place')->name('working-place.')->group(function(){
+    Route::prefix('slider')->name('working-place.')->group(function(){
         Route::get('/', [WorkingPlaceController::class,'index'])->name('index');
         Route::get('/insert',[WorkingPlaceController::class,'insert'])->name('insert');
         Route::post('/insert',[WorkingPlaceController::class,'postInsert'])->name('post-insert');
         Route::get('/update/{id}',[WorkingPlaceController::class,'update'])->name('update');
         Route::post('/update',[WorkingPlaceController::class,'postUpdate'])->name('post-update');
         Route::get('/delete/{id}',[WorkingPlaceController::class,'delete'])->name('delete');
+    });
+    // Slider
+    Route::prefix('slider')->name('slider.')->group(function(){
+        Route::get('/insert',[SliderController::class,'insert'])->name('insert');
+        Route::post('/insert',[SliderController::class,'postInsert'])->name('post-insert');
+        Route::get('/update/{id}',[SliderController::class,'update'])->name('update');
+        Route::post('/update',[SliderController::class,'postUpdate'])->name('post-update');
+        Route::get('/delete/{id}',[SliderController::class,'delete'])->name('delete');
     });
 });

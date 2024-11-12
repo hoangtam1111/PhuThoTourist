@@ -43,6 +43,6 @@ class TypePostController extends Controller
     }
     public function delete($id){
         $this->typePost->deleteTypePost($id);
-        return view('admin.type-post.index');
+        return redirect()->route('admin.type-post.index');
     }
 }

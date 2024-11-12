@@ -43,6 +43,6 @@ class TypeWorkController extends Controller
     }
     public function delete($id){
         $this->typeWork->deleteTypeWork($id);
-        return view('admin.type-work.index');
+        return redirect()->route('admin.type-work.index');
     }
 }

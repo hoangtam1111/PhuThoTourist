@@ -7,7 +7,7 @@
             <div class="header d-flex justify-content-between">
                 <div class="title text-info fs-2">Slider</div>
                 <div class="insert">
-                    <a href="" class="btn btn-outline-primary">Insert</a>
+                    <a href="{{ route('admin.slider.insert') }}" class="btn btn-outline-primary">Insert</a>
                 </div>
             </div>
             <table class="table table-bordered align-middle text-center">
@@ -26,8 +26,8 @@
                         <td>{{ $slider->title }}</td>
                         <td><input type="checkbox" name="" id="" {{ $slider->active==1?'checked' : ''}}></td>
                         <td>
-                            <a href="" class="btn btn-outline-success">Update</a>
-                            <form action="" method="GET"
+                            <a href="{{ route('admin.slider.update', $slider->id) }}" class="btn btn-outline-success">Update</a>
+                            <form action="{{ route('admin.slider.delete', $slider->id) }}" method="GET"
                                 onsubmit="return confirm('{{ trans('Do you want to delete slider ? ') }}');"
                                 style="display: inline-block;">
                                 @csrf

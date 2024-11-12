@@ -23,7 +23,7 @@ class CentralWorkController extends Controller
         $request->validate([
             'title' =>'required',
             'description' => 'required|string',
-            'image' => 'required|file',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ],[
             'title.required' =>'Please enter a title',
             'description.required' =>'Please enter a description',
@@ -44,7 +44,7 @@ class CentralWorkController extends Controller
         $request->validate([
             'title' =>'required',
             'description' => 'required|string',
-            'image' => 'required|file',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ],[
             'title.required' =>'Please enter a title',
             'description.required' =>'Please enter a description',

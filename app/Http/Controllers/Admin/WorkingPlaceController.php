@@ -43,6 +43,6 @@ class WorkingPlaceController extends Controller
     }
     public function delete($id){
         $this->workingPlace->deleteWorkingPlace($id);
-        return view('admin.working-place.index');
+        return redirect()->route('admin.working-place.index');
     }
 }
