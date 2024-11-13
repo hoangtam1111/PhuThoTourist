@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Repositories\Interfaces\CentralServiceInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
-class CentralWorkController extends Controller
+class CentralServiceController extends Controller
 {
     private $centralService;
     public function __construct(CentralServiceInterface $centralServiceInterface){
@@ -14,10 +15,10 @@ class CentralWorkController extends Controller
     }
     public function index(){
         $centralServices=$this->centralService->getAllCentralService();
-        return view('',compact('centralServices'));
+        return view('admin.index',compact('centralServices'));
     }
     public function insert(){
-        return view();
+        return view('admin.central-service.insert');
     }
     public function insertCentralService(Request $request){
         $request->validate([
@@ -29,8 +30,10 @@ class CentralWorkController extends Controller
             'description.required' =>'Please enter a description',
             'image.required' =>'Please choose image central work'
         ]);
+        $extension=$request->file('image')->getClientOriginalName();
+        $request->file('image')->move('image/central',$extension);
         $this->centralService->insertCentralService($request->all());
-        return redirect()->route('');
+        return redirect()->route('admin.index');
     }
     public function update($id){
         $centralService = $this->centralService->getCentralService($id);
@@ -38,7 +41,7 @@ class CentralWorkController extends Controller
     }
     public function updateState($id){
         $this->centralService->updateStateCentralService($id);
-        return redirect()->route('');
+        return redirect()->route('admin.index');
     }
     public function postUpdate(Request $request){
         $request->validate([
@@ -50,11 +53,22 @@ class CentralWorkController extends Controller
             'description.required' =>'Please enter a description',
             'image.required' =>'Please choose image central work'
         ]);
+        $central=$this->centralService->getCentralService($request->get('id'));
+        $extension=$central->image;
+        if($request->file('image')){
+            $filePath='image/central/'.$central->image;
+            File::delete($filePath);
+            $extension=$request->file('image')->getClientOriginalName();
+            $request->file('image')->move('image/central',$extension);
+        }
         $this->centralService->updateCentralService($request->all(),$request->get('id'));
-        return redirect()->route('');
+        return redirect()->route('admin.index');
     }
     public function delete($id){
+        $central=$this->centralService->getCentralService($id);
+        $filePath='image/central/'.$central->image;
+        File::delete($filePath);
         $this->centralService->deleteCentralService($id);
-        return view();
+        return view('admin.index');
     }
 }
