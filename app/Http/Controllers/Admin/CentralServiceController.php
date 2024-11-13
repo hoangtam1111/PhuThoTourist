@@ -20,11 +20,11 @@ class CentralServiceController extends Controller
     public function insert(){
         return view('admin.central-service.insert');
     }
-    public function insertCentralService(Request $request){
+    public function postInsert(Request $request){
         $request->validate([
             'title' =>'required',
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image',
         ],[
             'title.required' =>'Please enter a title',
             'description.required' =>'Please enter a description',
@@ -32,12 +32,16 @@ class CentralServiceController extends Controller
         ]);
         $extension=$request->file('image')->getClientOriginalName();
         $request->file('image')->move('image/central',$extension);
-        $this->centralService->insertCentralService($request->all());
+        $this->centralService->insertCentralService([
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'image' => $extension
+        ]);
         return redirect()->route('admin.index');
     }
     public function update($id){
         $centralService = $this->centralService->getCentralService($id);
-        return view('', compact('centralService'));
+        return view('admin.central-service.update', compact('centralService'));
     }
     public function updateState($id){
         $this->centralService->updateStateCentralService($id);
@@ -47,7 +51,7 @@ class CentralServiceController extends Controller
         $request->validate([
             'title' =>'required',
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image',
         ],[
             'title.required' =>'Please enter a title',
             'description.required' =>'Please enter a description',
@@ -57,18 +61,26 @@ class CentralServiceController extends Controller
         $extension=$central->image;
         if($request->file('image')){
             $filePath='image/central/'.$central->image;
-            File::delete($filePath);
+            if(File::exists($filePath)){
+                File::delete($filePath);
+            }
             $extension=$request->file('image')->getClientOriginalName();
             $request->file('image')->move('image/central',$extension);
         }
-        $this->centralService->updateCentralService($request->all(),$request->get('id'));
+        $this->centralService->updateCentralService([
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'image' => $extension
+        ],$request->get('id'));
         return redirect()->route('admin.index');
     }
     public function delete($id){
         $central=$this->centralService->getCentralService($id);
         $filePath='image/central/'.$central->image;
-        File::delete($filePath);
+        if(File::exists($filePath)){
+            File::delete($filePath);
+        }
         $this->centralService->deleteCentralService($id);
-        return view('admin.index');
+        return redirect()->route('admin.index');
     }
 }

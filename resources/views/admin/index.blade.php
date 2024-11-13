@@ -44,7 +44,7 @@
             <div class="header d-flex justify-content-between">
                 <div class="title text-info fs-2">Central Service</div>
                 <div class="insert">
-                    <a href="" class="btn btn-outline-primary">Insert</a>
+                    <a href="{{ route('admin.central-service.insert') }}" class="btn btn-outline-primary">Insert</a>
                 </div>
             </div>
             <table class="table table-bordered align-middle text-center">
@@ -65,8 +65,8 @@
                         <td style="max-width: 400px" class="text-start">{{ $centralService->description }}</td>
                         <td><input type="checkbox" name="" id="" {{ $centralService->active==1?'checked' : ''}}></td>
                         <td>
-                            <a href="" class="btn btn-outline-success">Update</a>
-                            <form action="" method="GET"
+                            <a href="{{ route('admin.central-service.update',$centralService->id) }}" class="btn btn-outline-success">Update</a>
+                            <form action="{{ route('admin.central-service.delete',$centralService->id) }}" method="GET"
                                 onsubmit="return confirm('{{ trans('Do you want delete central service ? ') }}');"
                                 style="display: inline-block;">
                                 @csrf

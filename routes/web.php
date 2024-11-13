@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CentralServiceController;
 use App\Http\Controllers\Admin\FieldController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TypePostController;
@@ -76,5 +77,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/update/{id}',[SliderController::class,'update'])->name('update');
         Route::post('/update',[SliderController::class,'postUpdate'])->name('post-update');
         Route::get('/delete/{id}',[SliderController::class,'delete'])->name('delete');
+    });
+    //Central Service
+    Route::prefix('central-service')->name('central-service.')->group(function(){
+        Route::get('/insert',[CentralServiceController::class,'insert'])->name('insert');
+        Route::post('/insert',[CentralServiceController::class,'postInsert'])->name('post-insert');
+        Route::get('/update/{id}',[CentralServiceController::class,'update'])->name('update');
+        Route::post('/update',[CentralServiceController::class,'postUpdate'])->name('post-update');
+        Route::get('/delete/{id}',[CentralServiceController::class,'delete'])->name('delete');
     });
 });

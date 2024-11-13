@@ -47,7 +47,9 @@ class SliderController extends Controller
         $extension=$slider->image;
         if($request->file('image')){
             $filePath='image/sliders/'.$slider->image;
-            File::deletedelete($filePath);
+            if(File::exists($filePath)){
+                File::delete($filePath);
+            }
             $extension=$request->file('image')->getClientOriginalName();
             $request->file('image')->move('image/sliders',$extension);
         }
@@ -64,7 +66,9 @@ class SliderController extends Controller
     public function delete($id){
         $slider=$this->slider->getSlider($id);
         $filePath='image/sliders/'.$slider->image;
-        File::delete($filePath);
+        if(File::exists($filePath)){
+            File::delete($filePath);
+        }
         $this->slider->deleteSlider($id);
         return redirect()->route('admin.index');
     }
