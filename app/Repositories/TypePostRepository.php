@@ -16,7 +16,7 @@ class TypePostRepository implements TypePostInterface
     }
     public function insertTypePost($data)
     {
-        TypePost::create($data);
+        return TypePost::create($data);
     }
     public function updateTypePost($data, $id)
     {

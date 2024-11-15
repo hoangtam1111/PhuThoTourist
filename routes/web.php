@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CentralServiceController;
 use App\Http\Controllers\Admin\FieldController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TypePostController;
 use App\Http\Controllers\Admin\TypeWorkController;
@@ -85,5 +86,14 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/update/{id}',[CentralServiceController::class,'update'])->name('update');
         Route::post('/update',[CentralServiceController::class,'postUpdate'])->name('post-update');
         Route::get('/delete/{id}',[CentralServiceController::class,'delete'])->name('delete');
+    });
+    //Post
+    Route::prefix('post')->name('post.')->group(function(){
+        Route::get('/',[AdminPostController::class,'indexAdmin'])->name('index');
+        Route::get('/insert',[AdminPostController::class,'insert'])->name('insert');
+        Route::post('/insert',[AdminPostController::class,'postInsert'])->name('post-insert');
+        Route::get('/update/{id}',[AdminPostController::class,'update'])->name('update');
+        Route::post('/update',[AdminPostController::class,'postUpdate'])->name('post-update');
+        Route::get('/delete/{id}',[AdminPostController::class,'delete'])->name('delete');
     });
 });

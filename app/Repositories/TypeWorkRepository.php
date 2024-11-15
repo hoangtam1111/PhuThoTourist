@@ -16,7 +16,7 @@ class TypeWorkRepository implements TypeWorkInterface
     }
     public function insertTypeWork($data)
     {
-        TypeWork::create($data);
+        return TypeWork::create($data);
     }
     public function updateTypeWork($data, $id)
     {

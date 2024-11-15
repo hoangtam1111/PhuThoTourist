@@ -16,7 +16,7 @@ class WorkingPlaceRepository implements WorkingPlaceInterface
     }
     public function insertWorkingPlace($data)
     {
-        WorkingPlace::create($data);
+        return WorkingPlace::create($data);
     }
     public function updateWorkingPlace($data, $id)
     {

@@ -38,7 +38,7 @@ class RecruitmentRepository implements RecruitmentInterface
     }
     public function insertRecruitment($data)
     {
-        Recruitment::create($data);
+        return Recruitment::create($data);
     }
     public function updateRecruitment($data, $id)
     {

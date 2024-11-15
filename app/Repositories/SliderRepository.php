@@ -19,7 +19,7 @@ class SliderRepository implements SliderInterface
     }
     public function insertSlider($data)
     {
-        Slider::create($data);
+        return Slider::create($data);
     }
     public function updateSlider($data, $id)
     {

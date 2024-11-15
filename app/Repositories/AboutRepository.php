@@ -13,7 +13,7 @@ class AboutRepository implements AboutInterface
     }
     public function insertAbout($data)
     {
-        About::create($data);
+        return About::create($data);
     }
     public function updateAbout($data, $id)
     {

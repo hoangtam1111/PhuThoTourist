@@ -20,7 +20,7 @@ class CentralServiceRepository implements CentralServiceInterface
 
     public function insertCentralService($data)
     {
-        CentralService::create($data);
+        return CentralService::create($data);
     }
     public function updateCentralService($data, $id)
     {

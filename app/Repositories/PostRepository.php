@@ -22,7 +22,7 @@ class PostRepository implements PostInterface
     }
     public function insertPost($data)
     {
-        Post::create($data);
+        return Post::create($data);
     }
     public function updatePost($data, $id)
     {

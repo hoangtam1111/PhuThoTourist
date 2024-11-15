@@ -16,7 +16,7 @@ class FieldRepository implements FieldInterface
     }
     public function insertField($data)
     {
-        Field::create($data);
+        return Field::create($data);
     }
     public function updateField($data, $id)
     {

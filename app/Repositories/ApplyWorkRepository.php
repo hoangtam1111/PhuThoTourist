@@ -20,7 +20,7 @@ class ApplyWorkRepository implements ApplyWorkInterface
     }
     public function insertApplyWork($data)
     {
-        ApplyWork::create($data);
+        return ApplyWork::create($data);
     }
     public function updateApplyWork($data, $id)
     {
