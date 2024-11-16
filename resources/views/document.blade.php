@@ -103,8 +103,8 @@
                         <div class="body col-3">{{ $post->date }}</div>
                         <div class="body col-3 text-center"
                             style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
-                            <a href="{{ asset('files/' . $post->file) }}"
-                                download="{{ asset('files/' . $post->file) }}">
+                            <a href="{{ asset('files/post/' . $post->file) }}"
+                                download="{{ asset('files/post/' . $post->file) }}">
                                 <i class="fa fa-download" aria-hidden="true"></i>
                             </a>
                         </div>

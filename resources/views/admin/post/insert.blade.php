@@ -19,7 +19,7 @@
                     <tr>
                         <td><label class="form-label">Description</label></td>
                         <td>
-                            <textarea name="description" id="" placeholder="">{{ old('description') }}</textarea>
+                            <textarea class="form-control" name="description" id="" placeholder="">{{ old('description') }}</textarea>
                             @error('description')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror

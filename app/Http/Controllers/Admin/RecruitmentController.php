@@ -20,18 +20,17 @@ class RecruitmentController extends Controller
     }
     public function index(){
         $recruitments=$this->recruitment->getAllRecruitment();
-        return view('', compact('recruitments'));
+        return view('admin.recruitment.index', compact('recruitments'));
     }
     public function insert(){
         $fields=$this->field->getAllField();
-        $typeWork=$this->typeWork->getAllTypeWork();
-        $workingPlace=$this->workingPlace->getAllWorkingPlace();
-        return view('',compact('fields', 'typeWork', 'workingPlace'));
+        $typeWorks=$this->typeWork->getAllTypeWork();
+        $workingPlaces=$this->workingPlace->getAllWorkingPlace();
+        return view('admin.recruitment.insert',compact('fields', 'typeWorks', 'workingPlaces'));
     }
     public function postInsert(Request $request){
         $request->validate([
             'location' => 'required|string',
-            'quantity' => 'required|integer',
             'address' =>'required|string',
             'job_description'=>'required|string',
             'date'=>'required|date',
@@ -41,7 +40,6 @@ class RecruitmentController extends Controller
             'level'=>'required|string',
         ],[
             'location.required' => 'Please enter a location',
-            'quantity.required'=> 'Please enter a quantity',
             'address.required'=> 'Please enter a address',
             'job_description.required'=> 'Please enter a job description',
             'date.required'=> 'Please enter a date',
@@ -52,14 +50,15 @@ class RecruitmentController extends Controller
 
         ]);
         $this->recruitment->insertRecruitment($request->all());
-        return redirect()->route('');
+        return redirect()->route('admin.recruitment.index');
     }
     public function update($id){
         $recruitment=$this->recruitment->getRecruitment($id);
         $fields=$this->field->getAllField();
-        $typeWork=$this->typeWork->getAllTypeWork();
-        $workingPlace=$this->workingPlace->getAllWorkingPlace();
-        return view('', compact('recruitment', 'fields', 'typeWork', 'workingPlace'));
+        $typeWorks=$this->typeWork->getAllTypeWork();
+        $workingPlaces=$this->workingPlace->getAllWorkingPlace();
+        // die($recruitment);
+        return view('admin.recruitment.update',compact('recruitment','fields', 'typeWorks', 'workingPlaces'));
     }
     public function postUpdate(Request $request){
         $request->validate([
@@ -85,10 +84,10 @@ class RecruitmentController extends Controller
 
         ]);
         $this->recruitment->updateRecruitment($request->all(),$request->get('id'));
-        return redirect()->route('');
+        return redirect()->route('admin.recruitment.index');
     }
     public function delete($id){
         $this->recruitment->deleteRecruitment($id);
-        return view('');
+        return redirect()->route('admin.recruitment.index');
     }
 }

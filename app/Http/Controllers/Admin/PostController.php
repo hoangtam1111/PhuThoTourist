@@ -43,7 +43,7 @@ class PostController extends Controller
         $request->file('image')->move('image/post',$image);
         // insert file
         $file=$request->file('file')->getClientOriginalName();
-        $request->file('file')->move('files',$file);
+        $request->file('file')->move('files/post',$file);
 
         $post=$this->post->insertPost([
             'title' => $request->get('title'),
@@ -103,8 +103,8 @@ class PostController extends Controller
         // insert file
         if(!empty($request->get('file'))){
             $file=$request->file('file')->getClientOriginalName();
-            $request->file('file')->move('files',$file);
-            $file='files/'.$post->file;
+            $request->file('file')->move('files/post',$file);
+            $file='files/post/'.$post->file;
             if(File::exists($file)){
                 File::delete($file);
             }
@@ -131,7 +131,7 @@ class PostController extends Controller
         if(File::exists($image)){
             File::delete($image);
         }
-        $file='files/'.$post->file;
+        $file='files/post/'.$post->file;
         if(File::exists($file)){
             File::delete($file);
         }

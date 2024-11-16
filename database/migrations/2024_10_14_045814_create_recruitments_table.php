@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreignId('field_id')->constrained()->cascadeOnDelete();
             $table->foreignId('type_work_id')->constrained()->cascadeOnDelete();
             $table->foreignId('working_place_id')->constrained()->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 

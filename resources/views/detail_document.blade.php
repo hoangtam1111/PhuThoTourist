@@ -45,7 +45,7 @@
             <p>Chi tiết xem trong văn bản đính kèm</p>
         </div>
         @if (!empty($post->file))
-            <iframe class="file" src="{{ asset('files/' . $post->file) }}"></iframe>
+            <iframe class="file" src="{{ asset('files/post/' . $post->file) }}"></iframe>
         @endif
         <div class="related-posts mt-4">
             <div class="title text-start mb-2">Bài viết liên quan</div>

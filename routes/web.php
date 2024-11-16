@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CentralServiceController;
 use App\Http\Controllers\Admin\FieldController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
+use App\Http\Controllers\Admin\RecruitmentController as AdminRecruitmentController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TypePostController;
 use App\Http\Controllers\Admin\TypeWorkController;
@@ -95,5 +96,14 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/update/{id}',[AdminPostController::class,'update'])->name('update');
         Route::post('/update',[AdminPostController::class,'postUpdate'])->name('post-update');
         Route::get('/delete/{id}',[AdminPostController::class,'delete'])->name('delete');
+    });
+     //Recruitment
+     Route::prefix('recruitment')->name('recruitment.')->group(function(){
+        Route::get('/',[AdminRecruitmentController::class,'index'])->name('index');
+        Route::get('/insert',[AdminRecruitmentController::class,'insert'])->name('insert');
+        Route::post('/insert',[AdminRecruitmentController::class,'postInsert'])->name('post-insert');
+        Route::get('/update/{id}',[AdminRecruitmentController::class,'update'])->name('update');
+        Route::post('/update',[AdminRecruitmentController::class,'postUpdate'])->name('post-update');
+        Route::get('/delete/{id}',[AdminRecruitmentController::class,'delete'])->name('delete');
     });
 });
