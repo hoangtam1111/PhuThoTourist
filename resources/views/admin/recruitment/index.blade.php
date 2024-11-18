@@ -23,7 +23,7 @@
                     @foreach ($recruitments as $recruitment)
                     <tr>
                         <td>{{ $recruitment->id }}</td>
-                        <td>{{ $recruitment->location }}</td>
+                        <td><a href="{{ route('admin.recruitment.detail', $recruitment->id) }}">{{ $recruitment->location }}</a></td>
                         <td>{{ $recruitment->quantity }}</td>
                         <td>{{ $recruitment->age }}</td>
                         <td>{{ $recruitment->level }}</td>

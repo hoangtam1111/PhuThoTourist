@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ApplyWorkController;
 use App\Http\Controllers\Admin\CentralServiceController;
 use App\Http\Controllers\Admin\FieldController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
@@ -100,10 +101,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
      //Recruitment
      Route::prefix('recruitment')->name('recruitment.')->group(function(){
         Route::get('/',[AdminRecruitmentController::class,'index'])->name('index');
+        Route::get('/detail/{id}',[AdminRecruitmentController::class,'detail'])->name('detail');
         Route::get('/insert',[AdminRecruitmentController::class,'insert'])->name('insert');
         Route::post('/insert',[AdminRecruitmentController::class,'postInsert'])->name('post-insert');
         Route::get('/update/{id}',[AdminRecruitmentController::class,'update'])->name('update');
         Route::post('/update',[AdminRecruitmentController::class,'postUpdate'])->name('post-update');
         Route::get('/delete/{id}',[AdminRecruitmentController::class,'delete'])->name('delete');
+    });
+     //Apply Work
+     Route::prefix('apply-work')->name('apply-work.')->group(function(){
+         Route::get('/detail/{id}',[ApplyWorkController::class,'detail'])->name('detail');
+        Route::get('/delete/{id}',[ApplyWorkController::class,'delete'])->name('delete');
     });
 });

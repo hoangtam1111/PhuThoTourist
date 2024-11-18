@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\Interfaces\ApplyWorkInterface;
 use App\Repositories\Interfaces\FieldInterface;
 use App\Repositories\Interfaces\RecruitmentInterface;
 use App\Repositories\Interfaces\TypeWorkInterface;
@@ -11,16 +12,22 @@ use Illuminate\Http\Request;
 
 class RecruitmentController extends Controller
 {
-    private $recruitment, $field, $typeWork, $workingPlace;
-    public function __construct(RecruitmentInterface $recruitmentInterface, FieldInterface $fieldInterface, TypeWorkInterface $typeWorkInterface, WorkingPlaceInterface $workingPlaceInterface){
+    private $recruitment, $field, $typeWork, $workingPlace, $applyWork;
+    public function __construct(RecruitmentInterface $recruitmentInterface, FieldInterface $fieldInterface, TypeWorkInterface $typeWorkInterface, WorkingPlaceInterface $workingPlaceInterface, ApplyWorkInterface $applyWorkInterface){
         $this->recruitment = $recruitmentInterface;
         $this->field = $fieldInterface;
         $this->typeWork = $typeWorkInterface;
         $this->workingPlace = $workingPlaceInterface;
+        $this->applyWork = $applyWorkInterface;
     }
     public function index(){
         $recruitments=$this->recruitment->getAllRecruitment();
         return view('admin.recruitment.index', compact('recruitments'));
+    }
+    public function detail($id){
+        $recruitment=$this->recruitment->getRecruitment($id);
+        $applyWorks=$this->applyWork->getAllApplyOnWork($recruitment->id);
+        return view('admin.recruitment.detail', compact('recruitment','applyWorks'));
     }
     public function insert(){
         $fields=$this->field->getAllField();

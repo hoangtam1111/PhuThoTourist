@@ -22,6 +22,10 @@ class ApplyWorkController extends Controller
         }
         return view('',compact('recruitment_id','applyWorks'));
     }
+    public function detail($id){
+        $applyWork=$this->applyWork->getApplyWork($id);
+        return view('admin.apply-work.detail', compact('applyWork'));
+    }
     public function insert(){
         return view('');
     }
@@ -86,7 +90,8 @@ class ApplyWorkController extends Controller
         return redirect()->route('');
     }
     public function delete($id){
+        $apply=$this->applyWork->getApplyWork($id);
         $this->applyWork->deleteApplyWork($id);
-        return view('');
+        return redirect()->route('admin.recruitment.detail', ['id' => $apply->recruitment_id]);
     }
 }
