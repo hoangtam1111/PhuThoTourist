@@ -65,7 +65,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/delete/{id}',[TypeWorkController::class,'delete'])->name('delete');
     });
     // Working Place
-    Route::prefix('slider')->name('working-place.')->group(function(){
+    Route::prefix('working-place')->name('working-place.')->group(function(){
         Route::get('/', [WorkingPlaceController::class,'index'])->name('index');
         Route::get('/insert',[WorkingPlaceController::class,'insert'])->name('insert');
         Route::post('/insert',[WorkingPlaceController::class,'postInsert'])->name('post-insert');

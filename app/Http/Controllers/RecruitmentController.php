@@ -19,16 +19,17 @@ class RecruitmentController extends Controller
     }
     public function index(Request $request){
         $page = $request->input('page', 1);
+        $search = $request->input('search', null);
         $field=$request->input('field', null);
-        $type_work=$request->input('tye_work', null);
+        $type_work=$request->input('type_work', null);
         $working_place=$request->input('working_place', null);
 
-        $recruitments=$this->recruiment->getRecruitmentsWithFilter($field, $type_work, $working_place,9,$page);
+        $recruitments=$this->recruiment->getRecruitmentsWithFilter($search,$field, $type_work, $working_place,9,$page);
         $fields=$this->field->getAllField();
         $type_works=$this->typeWork->getAllTypeWork();
         $working_places=$this->workingPlace->getAllWorkingPlace();
         $field_id=$field; $type_work_id=$type_work; $working_place_id=$working_place;
-        // die($recruitments);
+        $total=$this->recruiment->getTotalRecruitmentPages($search,$field, $type_work, $working_place,9);
         return view('recruitment', compact(
             'recruitments',
             'fields',
@@ -37,12 +38,13 @@ class RecruitmentController extends Controller
             'page',
             'field_id',
             'type_work_id',
-            'working_place_id'
+            'working_place_id',
+            'search',
+            'total'
         ));
     }
     public function detail($id){
         $recruitment=$this->recruiment->getRecruitment($id);
-        // die($recruitment->type_work()->get());
         return view('detail_recruitment', compact('recruitment'));
     }
 }

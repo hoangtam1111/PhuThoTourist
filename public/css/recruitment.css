@@ -1,3 +1,7 @@
+a{
+    text-decoration: none;
+    color: black;
+}
 .content .filter{
     background-color: #FFFFFFB2;
     border-radius: 12px;
@@ -9,10 +13,14 @@
     position: relative;
 
 }
-.content .filter-search i{
+.content .filter-search button{
     position: absolute;
-    top: 20%;
+    top: 12%;
     left: 4%;
+    border: none;
+    background: white;
+}
+.content .filter-search i{
     font-size: 18px;
     color: #0054A6;
 }
@@ -38,14 +46,20 @@
     padding:8px 8px;
     border-radius: 99px;
     background-color: white;
-    font-size: 14px;
     margin-right: 7px;
     margin-bottom: 7px;
 }
 .content .list-field div.active{
     background-color: #0054A6;
+}
+.content .list-field div.active a{
     color: white;
     font-weight: 600;
+}
+.content .list-field a{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
 }
 .content .filter .img-background{
     position: absolute;

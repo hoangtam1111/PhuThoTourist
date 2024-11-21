@@ -10,8 +10,15 @@
             <div class="col-3" style="min-height: 864px; margin-bottom: 55px;">
                 <div class="filter">
                     <div class="filter-search">
-                        <i class="icon-search fa fa-search" aria-hidden="true"></i>
-                        <input type="text" name="search" class="search" placeholder="Tìm kiếm">
+                        <form action="{{ route('recruitments') }}" method="get">
+                            <input type="hidden" name="field_id" value="{{ $field_id }}">
+                            <input type="hidden" name="type_work_id" value="{{ $type_work_id }}">
+                            <input type="hidden" name="working_place_id" value="{{ $working_place_id }}">
+                            <input type="text" placeholder="Tìm kiếm" name="search" id="search-input" value="{{ $search }}">
+                            <button type="submit" id="button-search">
+                                <i class="icon-search fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </form>
                     </div>
                     <div class="underline mt-4 mb-4"></div>
                     <div class="field mb-3">
@@ -21,7 +28,11 @@
                         </div>
                         <div class="list-field d-flex flex-wrap">
                             @foreach ($fields as $field)
-                                <div>{{ $field->name }}</div>
+                                <div class="{{ $field->id==$field_id ? 'active' : '' }}">
+                                    <a href="{{ route('recruitments', ['field' => $field->id,'type_work'=>$type_work_id,'working_place'=>$working_place_id]) }}">
+                                        {{ $field->name }}
+                                    </a>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -32,7 +43,11 @@
                         </div>
                         <div class="list-field d-flex flex-wrap">
                             @foreach ($type_works as $type_work)
-                                <div>{{ $type_work->name }}</div>
+                                <div class="{{ $type_work->id==$type_work_id ? 'active' : '' }}">
+                                    <a href="{{ route('recruitments', ['field' => $field_id,'type_work'=>$type_work->id,'working_place'=>$working_place_id]) }}">
+                                        {{ $type_work->name }}
+                                    </a>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -43,7 +58,11 @@
                         </div>
                         <div class="list-field d-flex flex-wrap">
                             @foreach ($working_places as $working_place)
-                                <div>{{ $working_place->name }}</div>
+                                <div class="{{ $working_place->id==$working_place_id ? 'active' : '' }}">
+                                    <a href="{{ route('recruitments', ['field' => $field_id,'type_work'=>$type_work_id,'working_place'=>$working_place->id]) }}">
+                                        {{ $working_place->name }}
+                                    </a>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -52,48 +71,60 @@
             </div>
             <div class="col-9">
                 <div class="row">
-                    @foreach ($recruitments as $recruitment)
-                        <div class="col-4 mb-4">
-                            <div class="recruiment ">
-                                <div class="title d-flex flex-wrap">
-                                    <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
-                                    <div class="text-start">
-                                        <div class="name">{{ $recruitment->location }}</div>
-                                        <div class="type">{{ $recruitment->type_work()->first()->name}}</div>
-                                        <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $recruitment->working_place()->first()->name }}</div>
-                                        <div class="d-flex justify-content-between">
-                                            <div class="time">
-                                                <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $recruitment->getWeek($recruitment->date) }} tuần trước
-                                            </div>
-                                            <div class="state green">
-                                                <span>Đang tuyển</span>
+                    @if (count($recruitments)>0)
+                        @foreach ($recruitments as $recruitment)
+                            <div class="col-4 mb-4">
+                                <div class="recruiment ">
+                                    <div class="title d-flex flex-wrap">
+                                        <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
+                                        <div class="text-start">
+                                            <div class="name">{{ $recruitment->location }}</div>
+                                            <div class="type">{{ $recruitment->type_work()->first()->name}}</div>
+                                            <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $recruitment->working_place()->first()->name }}</div>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="time">
+                                                    <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $recruitment->getWeek($recruitment->date) }} tuần trước
+                                                </div>
+                                                <div class="state green">
+                                                    <span>Đang tuyển</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="detail text-start">Mô tả công việc:</div>
-                                <div class="description text-start">
-                                    {{ $recruitment->job_description }} ...
-                                </div>
-                                <a href="{{ route('detail_recruitment',$recruitment->id) }}">
-                                    <div class="link">
-                                        Xem chi tiết
+                                    <div class="detail text-start">Mô tả công việc:</div>
+                                    <div class="description text-start">
+                                        {{ $recruitment->job_description }} ...
                                     </div>
-                                </a>
+                                    <a href="{{ route('detail_recruitment',$recruitment->id) }}">
+                                        <div class="link">
+                                            Xem chi tiết
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                        <div class="col-12">
+                            <div class="list-page d-flex justify-content-center align-items-center">
+                                <div>
+                                    <a href="{{ route('recruitments', ['field' => $field_id,'type_work'=>$type_work_id,'working_place'=>$working_place_id,'page'=>$page-1<1?1:$page-1]) }}">
+                                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                @for($i = 1; $i <= $total; $i++)
+                                    <a href="{{ route('recruitments', ['field' => $field_id,'type_work'=>$type_work_id,'working_place'=>$working_place_id,'page'=>$i]) }}">
+                                        <div class="{{ $page==$i?'active':'' }}">{{ $i }}</div>
+                                    </a>
+                                @endfor
+                                <div>
+                                    <a href="{{ route('recruitments', ['field' => $field_id,'type_work'=>$type_work_id,'working_place'=>$working_place_id,'page'=>$page+1 > $total ? $total : $page+1]) }}">
+                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    @endforeach
-                    <div class="col-12">
-                        <div class="list-page d-flex justify-content-center align-items-center">
-                            <div><i class="fa fa-caret-left" aria-hidden="true"></i></div>
-                            <div class="active">1</div>
-                            <div>2</div>
-                            <div>3</div>
-                            <div>...</div>
-                            <div>10</div>
-                            <div><i class="fa fa-caret-right" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
+                    @else
+                        <h2 class="text-danger">Not found</h2>
+                    @endif
                 </div>
             </div>
         </div>

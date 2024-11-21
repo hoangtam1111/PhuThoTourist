@@ -26,26 +26,12 @@
                 <input type="radio" name="slider" id="s3" checked>
                 <input type="radio" name="slider" id="s4">
                 <input type="radio" name="slider" id="s5">
-                <label for="s1" id="slider1">
-                    <img src="{{ asset('image/sliders/image1.png') }}" height="500px" width="100%" alt="">
-                    <div class="text">Hơn 1000 bánh chưng lộc cho khách dâng hương tượng vua Hùng tại Đầm Sen</div>
-                </label>
-                <label for="s2" id="slider2">
-                    <img src="{{ asset('image/sliders/image1.png') }}" height="500px" width="100%" alt="">
-                    <div class="text">Hơn 1000 bánh chưng lộc cho khách dâng hương tượng vua Hùng tại Đầm Sen</div>
-                </label>
-                <label for="s3" id="slider3">
-                    <img src="{{ asset('image/sliders/image1.png') }}" height="500px" width="100%" alt="">
-                    <div class="text">Hơn 1000 bánh chưng lộc cho khách dâng hương tượng vua Hùng tại Đầm Sen</div>
-                </label>
-                <label for="s4" id="slider4">
-                    <img src="{{ asset('image/sliders/image1.png') }}" height="500px" width="100%" alt="">
-                    <div class="text">Hơn 1000 bánh chưng lộc cho khách dâng hương tượng vua Hùng tại Đầm Sen</div>
-                </label>
-                <label for="s5" id="slider5">
-                    <img src="{{ asset('image/sliders/image1.png') }}" height="500px" width="100%" alt="">
-                    <div class="text">Hơn 1000 bánh chưng lộc cho khách dâng hương tượng vua Hùng tại Đầm Sen</div>
-                </label>
+                @for ($i=0;$i<5;$i++)
+                    <label for="s{{ $i+1 }}" id="slider{{ $i+1 }}">
+                        <img src="{{ asset('image/sliders/'.$sliders[$i]->image) }}" height="500px" width="100%" alt="">
+                        <div class="text">{{ $sliders[$i]->title }}</div>
+                    </label>
+                @endfor
             </section>
         </div>
     </div>

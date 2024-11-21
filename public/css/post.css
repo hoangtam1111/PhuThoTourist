@@ -18,6 +18,8 @@ a{
 }
 .type-post .list-type{
     padding-left: 0;
+    position: relative;
+    z-index: 999;
 }
 .type-post .list-type li{
     padding: 12px;
@@ -59,12 +61,16 @@ a{
 .filter .search {
     position: relative;
 }
-.filter .search i {
-    font-size: 20px;
-    color: #0054A6;
+.filter .search #button-search{
     position: absolute;
     left: 16px;
     top: 22%;
+    border: none;
+    background: white;
+}
+.filter .search i {
+    font-size: 20px;
+    color: #0054A6;
 }
 
 .filter .search input {

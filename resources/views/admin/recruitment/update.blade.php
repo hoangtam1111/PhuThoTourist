@@ -8,6 +8,16 @@
                 <table class="table table-bordered">
                     <input type="hidden" name="id" value="{{ $recruitment->id }}">
                     <tr>
+                        <td><label class="form-label">State</label></td>
+                        <td>
+                            <select class="form-control" id="state" name="state">
+                                <option value="{{ $recruitment->state==0?0:1 }}" >{{ $recruitment->state==0?"Đang tuyển":"Đã tuyển" }}</option>
+                                <option value="1" >Đã tuyển</option>
+                                <option value="0" >Đang tuyển</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
                         <td><label class="form-label">Location</label></td>
                         <td>
                             <input type="text" class="form-control" id="title" placeholder="Location work" name="location"

@@ -72,16 +72,24 @@
                 <div class="filter-date">
                     <p class="text-start">Ngày tạo</p>
                     <div class="input-date text-start">
-                        <input class="p-1" type="date" name="from_date" id="" value="2024-10-16">
+                        <input type="date" name="from" id="date-input" value="{{ $from?$from:'' }}"
+                        onchange="selectFrom(this.value)">
                         <i class="fa fa-caret-right" aria-hidden="true"></i>
-                        <input class="p-1" type="date" name="to_date" id="" value="2024-10-16">
+                        <input type="date" name="to" id="date-input" value="{{ $to?$to:'' }}"
+                        onchange="selectTo(this.value)">
                     </div>
                 </div>
                 <div class="filter-text">
                     <p class="text-start">Từ khoá</p>
                     <div class="input-search">
-                        <i class="icon-search fa fa-search" aria-hidden="true"></i>
-                        <input class="search ps-5 p-1" type="text" name="search" placeholder="Tìm kiếm">
+                        <form action="{{ route('document') }}" method="get">
+                            <button type="submit" id="button-search">
+                                <i class="fa fa-search" aria-hidden="true" id="search-button"></i>
+                            </button>
+                            <input type="hidden" name="from" value="{{ $from }}">
+                            <input type="hidden" name="to" value="{{ $to }}">
+                            <input type="text" placeholder="Tìm kiếm" name="search" id="search-input" value="{{ $search }}">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -118,16 +126,54 @@
                     trang
                 </div>
                 <div class="list-page d-flex justify-content-center align-items-center">
-                    <div><i class="fa fa-caret-left" aria-hidden="true"></i></div>
-                    <div class="active">1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>...</div>
-                    <div>10</div>
-                    <div><i class="fa fa-caret-right" aria-hidden="true"></i></div>
+                    <div>
+                        <a href="{{ route('document', ['search' => $search,'from'=>$from, 'to' => $to,'page'=>$page-1<1?1:$page-1]) }}">
+                            <i class="fa fa-caret-left" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    @for($i = 1; $i <= $total; $i++)
+                        <a href="{{ route('document', ['search' => $search,'from'=>$from, 'to' => $to,'page'=>$i]) }}">
+                            <div class="{{ $page==$i?'active':'' }}">{{ $i }}</div>
+                        </a>
+                    @endfor
+                    <div>
+                        <a href="{{ route('document', ['search' => $search,'from'=>$from, 'to' => $to,'page'=>$page+1 > $total ? $total : $page+1]) }}">
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
 @endsection
+<script>
+    function selectFrom(selectedDate) {
+        var baseUrl = '{{ route('document', ['search' => $search,'from'=>$from, 'to' => $to]) }}';
+        baseUrl = baseUrl.replace(/&amp;/g, '&');
+       if (baseUrl.includes('from=')) {
+            baseUrl = baseUrl.replace(/(from=)[^&]*/, '$1' + selectedDate);
+        } else {
+            var newUrl = baseUrl.includes('?') ?
+                baseUrl + '&from=' + selectedDate :
+                baseUrl + '?from=' + selectedDate;
+            window.location.href = newUrl;
+            return;
+        }
+        window.location.href = baseUrl;
+    }
+    function selectTo(selectedDate) {
+        var baseUrl = '{{ route('document', ['search' => $search,'from'=>$from, 'to' => $to]) }}';
+        baseUrl = baseUrl.replace(/&amp;/g, '&');
+        if (baseUrl.includes('to=')) {
+            baseUrl = baseUrl.replace(/(to=)[^&]*/, '$1' + selectedDate);
+        } else {
+            var newUrl = baseUrl.includes('?') ?
+            baseUrl + '&to=' + selectedDate :
+            baseUrl + '?to=' + selectedDate;
+            window.location.href = newUrl;
+            return;
+        }
+        window.location.href = baseUrl;
+    }
+</script>

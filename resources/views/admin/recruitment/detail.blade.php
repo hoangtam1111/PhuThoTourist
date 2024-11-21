@@ -10,6 +10,10 @@
                     <td>{{ $recruitment->location }}</td>
                 </tr>
                 <tr>
+                    <td><label class="form-label">State</label></td>
+                    <td>{{ $recruitment->state==0?"Đang tuyển":"Đã tuyển" }}</td>
+                </tr>
+                <tr>
                     <td><label class="form-label">Quantity</label></td>
                     <td>{{ $recruitment->quantity }}</td>
                 </tr>

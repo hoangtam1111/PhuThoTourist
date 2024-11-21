@@ -14,9 +14,49 @@ class PostRepository implements PostInterface
     {
         return Post::find($id);
     }
-    public function getPostsOnPage($page, $pageSize){
-        return Post::skip(($page - 1) * $pageSize)->take($pageSize)->get();
+    public function getPostsOnPage($page, $pageSize, $type = null, $search = null, $from = null, $to = null)
+    {
+        $query = Post::query();
+        if ($search) {
+            $query->where('title', 'like', '%' . $search . '%');
+        }
+        if ($type) {
+            $query->whereHas('typePost', function($q) use ($type) {
+                $q->where('type_posts.id', $type);
+            });
+        }
+        if ($from) {
+            $query->where('date', '>=', $from);
+        }
+        if ($to) {
+            $query->where('date', '<=', $to);
+        }
+        return $query->skip(($page - 1) * $pageSize)->take($pageSize)->get();
     }
+    public function getTotalPages($pageSize, $type = null, $search = null, $from = null, $to = null)
+    {
+        $query = Post::query();
+        if ($search) {
+            $query->where('title', 'like', '%' . $search . '%');
+        }
+        if ($type) {
+            $query->whereHas('typePost', function($q) use ($type) {
+                $q->where('type_posts.id', $type);
+            });
+        }
+        if ($from) {
+            $query->where('date', '>=', $from);
+        }
+        if ($to) {
+            $query->where('date', '<=', $to);
+        }
+        // Tổng số bản ghi
+        $totalRecords = $query->count();
+
+        // Tính số lượng trang
+        return ceil($totalRecords / $pageSize);
+    }
+
     public function getNewPost($quantiyPost){
         return Post::latest()->take($quantiyPost)->get();
     }

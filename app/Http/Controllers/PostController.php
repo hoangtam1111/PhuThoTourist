@@ -16,18 +16,46 @@ class PostController extends Controller
     public function index(Request $request){
         $page = $request->input('page', 1);
         $type_id = $request->input('type', null);
+        $search = $request->input('search', null);
+        $from = $request->input('from', null);
+        $to = $request->input('to', null);
 
-        $posts=$this->post->getPostsOnPage($page,12);
+        $posts=$this->post->getPostsOnPage($page,12,$type_id, $search,$from,$to);
         $newPosts = $this->post->getNewPost(10);
         $slider=$this->post->getNewPost(4);
         $types=$this->type->getAllTypePost();
-        return view('post', compact('posts','newPosts', 'slider', 'types', 'type_id'));
+        $total=$this->post->getTotalPages(12,$type_id, $search,$from,$to);
+
+        return view('post', compact(
+            'posts',
+            'newPosts',
+            'slider',
+            'types',
+            'type_id',
+            'search',
+            'from',
+            'to',
+            'total',
+            'page'
+        ));
     }
     public function document(Request $request){
         $page = $request->input('page', 1);
         $page_size = $request->input('page_size', 10);
-        $posts=$this->post->getPostsOnPage($page,$page_size);
-        return view('document', compact('posts'));
+        $search = $request->input('search', null);
+        $from = $request->input('from', null);
+        $to = $request->input('to', null);
+        $total=$this->post->getTotalPages(12,null, $search,$from,$to);
+
+        $posts=$this->post->getPostsOnPage($page,$page_size,null, $search,$from,$to);
+        return view('document', compact(
+            'posts',
+            'search',
+            'from',
+            'to',
+            'total',
+            'page'
+        ));
     }
     public function detailDocument($id){
         $post=$this->post->getPost($id);

@@ -64,7 +64,6 @@ class RecruitmentController extends Controller
         $fields=$this->field->getAllField();
         $typeWorks=$this->typeWork->getAllTypeWork();
         $workingPlaces=$this->workingPlace->getAllWorkingPlace();
-        // die($recruitment);
         return view('admin.recruitment.update',compact('recruitment','fields', 'typeWorks', 'workingPlaces'));
     }
     public function postUpdate(Request $request){
@@ -90,6 +89,7 @@ class RecruitmentController extends Controller
             'level.required'=> 'Please enter level requirements',
 
         ]);
+        // die(response()->json($request->all()));
         $this->recruitment->updateRecruitment($request->all(),$request->get('id'));
         return redirect()->route('admin.recruitment.index');
     }
