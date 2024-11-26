@@ -52,6 +52,142 @@ a{
     right: 0;
     width: 100%;
 }
+/* Slider  */
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+
+}
+.slider{
+    position: relative;
+    max-height: 470px;
+}
+.carousel {
+    position: relative;
+    overflow: hidden;
+    position: relative;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-image {
+    width: 100%;
+}
+.carousel-buttons {
+    height: 44px;
+    position: absolute;
+    bottom: -70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+
+}
+.carousel-buttons .button {
+    position: absolute;
+    right: 3%;
+    bottom: 200px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+.carousel-buttons .prev{
+    right: 8%;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+.text {
+    padding: 24px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+#caption .title{
+    font-weight: 700;
+    font-size: 36px;
+    color: #0054A6;
+}
+#caption .description{
+    font-size: 18px;
+    color: #4D4D4D;
+}
+.dots {
+    text-align: center;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 12px;
+    right: 3%;
+}
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #bbb;
+    cursor: pointer;
+}
+.active {
+    background-color: #717171;
+}
+#nav-scroll{
+    background-color: #bbb;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0054A6;
+}
+.scroll{
+    background-color: #bbb;
+    max-height: 415px;
+    padding: 0 24px;
+    overflow-y: auto; /* Thêm thanh cuộn dọc */
+}
+.scroll-item{
+    background-color: white;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+.scroll-item .image{
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.scroll-item img{
+    height: 100%; /* Đảm bảo hình ảnh chiếm ít nhất 100% chiều cao */
+    object-fit: cover;
+}
+.scroll-item .text{
+    padding: 12px;
+}
+.scroll-item .text .title{
+    font-weight: 700;
+    font-size: 14px;
+    color: #666666;
+}
+.scroll-item .info div{
+    font-size: 12px;
+    color: #858585;
+}
+.scroll-item .text .circle{
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #858585;
+}
 /* Filter */
 .filter {
     background-color: #b2f1c7b2;
