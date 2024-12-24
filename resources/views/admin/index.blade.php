@@ -24,7 +24,14 @@
                         <td>{{ $slider->id }}</td>
                         <td><img src="{{ asset('image/sliders/'.$slider->image) }}" style="max-height: 100px" alt=""></td>
                         <td>{{ $slider->title }}</td>
-                        <td><input type="checkbox" name="" id="" {{ $slider->active==1?'checked' : ''}}></td>
+                        <td>
+                            <form action="{{ route('admin.slider.update-state', $slider->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                <input type="checkbox" name="active" id="checkbox-{{ $slider->id }}"
+                                    {{ $slider->active == 1 ? 'checked' : '' }}
+                                    onclick="this.form.submit();">
+                            </form>
+                        </td>
                         <td>
                             <a href="{{ route('admin.slider.update', $slider->id) }}" class="btn btn-outline-success">Update</a>
                             <form action="{{ route('admin.slider.delete', $slider->id) }}" method="GET"
@@ -63,7 +70,14 @@
                         <td><img src="{{ asset('image/central/'.$centralService->image) }}" height="100px" alt=""></td>
                         <td>{{ $centralService->title }}</td>
                         <td style="max-width: 400px" class="text-start">{{ $centralService->description }}</td>
-                        <td><input type="checkbox" name="" id="" {{ $centralService->active==1?'checked' : ''}}></td>
+                        <td>
+                            <form action="{{ route('admin.central-service.update-state', $centralService->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                <input type="checkbox" name="active" id="checkbox-{{ $centralService->id }}"
+                                    {{ $centralService->active == 1 ? 'checked' : '' }}
+                                    onclick="this.form.submit();">
+                            </form>
+                        </td>
                         <td>
                             <a href="{{ route('admin.central-service.update',$centralService->id) }}" class="btn btn-outline-success">Update</a>
                             <form action="{{ route('admin.central-service.delete',$centralService->id) }}" method="GET"

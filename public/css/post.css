@@ -1,10 +1,29 @@
+.arrow-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.arrow-div {
+    position: relative;
+    padding: 12px 40px;
+    background: #FFFFFFB2;
+    color: #0054A6;
+    font-weight: bold;
+    font-size: 40px;
+    font-family: Philosopher;
+    text-align: center;
+    clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
+    transition: transform 0.2s ease;
+    user-select: none;
+}
 /* Type */
 a{
     text-decoration: none;
 }
 .type-post{
     border-radius: 12px;
-    background-color: #b2f1c7b2;
+    background-color: #FFFFFFB2;
     padding: 24px;
     height: 98%;
     position: relative;
@@ -53,16 +72,8 @@ a{
     width: 100%;
 }
 /* Slider  */
-body {
-    font-family: Arial, sans-serif;
-    background-color: black;
-    margin: 0;
-    padding: 0;
-
-}
 .slider{
     position: relative;
-    max-height: 470px;
 }
 .carousel {
     position: relative;
@@ -77,6 +88,8 @@ body {
 }
 .carousel-image {
     width: 100%;
+    height: auto; /* Giữ tỷ lệ hình ảnh */
+    max-width: none;
 }
 .carousel-buttons {
     height: 44px;
@@ -90,7 +103,7 @@ body {
 }
 .carousel-buttons .button {
     position: absolute;
-    right: 3%;
+    right: 6%;
     bottom: 200px;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
@@ -100,7 +113,7 @@ body {
     border-radius: 50%;
 }
 .carousel-buttons .prev{
-    right: 8%;
+    right: 14%;
 }
 
 .button:hover {
@@ -122,7 +135,13 @@ body {
 #caption .description{
     font-size: 18px;
     color: #4D4D4D;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 .dots {
     text-align: center;
     margin-top: 10px;
@@ -139,18 +158,22 @@ body {
     background-color: #bbb;
     cursor: pointer;
 }
-.active {
+.dots .active {
     background-color: #717171;
 }
 #nav-scroll{
-    background-color: #bbb;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-color: #FFFFFFB2;
     font-size: 24px;
     font-weight: 700;
     color: #0054A6;
 }
 .scroll{
-    background-color: #bbb;
-    max-height: 415px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: #FFFFFFB2;
+    max-height: 454px;
     padding: 0 24px;
     overflow-y: auto; /* Thêm thanh cuộn dọc */
 }
@@ -190,7 +213,7 @@ body {
 }
 /* Filter */
 .filter {
-    background-color: #b2f1c7b2;
+    background-color: #FFFFFFB2;
     padding: 12px;
     border-radius: 12px;
 }
@@ -292,4 +315,39 @@ body {
     background-color: #0054A6;
     color: white;
     font-weight: 700;
+}
+@media (max-width: 739px){
+
+    .navbar {
+        display: block;
+    }
+    .slider{
+        padding:12px 24px;
+    }
+
+    .carousel-buttons {
+        width: 94%;
+    }
+    .carousel-buttons .button {
+        right: 12%;
+    }
+    .carousel-buttons .prev {
+        right: 24%;
+    }
+    .dots {
+        bottom: 6%;
+        right: 8%;
+    }
+    .list-new-post{
+        padding:0px 24px;
+    }
+    .type-post, .filter{
+        display: none !important;
+    }
+    .list-post{
+        padding: 0 12px;
+    }
+    .content .related-posts .action span {
+        padding: 8px 14px;
+    }
 }

@@ -28,13 +28,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::post('/login', [HomeController::class, 'loginAdmin'])->name('loginAdmin');
+Route::get('/logout', [HomeController::class, 'logoutAdmin'])->name('logoutAdmin');
+
 Route::get('/detail-document/{id}', [PostController::class,'detailDocument'])->name('detail_document');
 Route::get('post',[PostController::class, 'index'])->name('post');
 Route::get('/document',[PostController::class, 'document'])->name('document');
+
 Route::get('/recruitment',[RecruitmentController::class,'index'])->name('recruitments');
+Route::post('/apply-work',[RecruitmentController::class,'apply'])->name('apply');
 Route::get('detail-recruitment/{id}',[RecruitmentController::class,'detail'])->name('detail_recruitment');
 
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
     Route::get('/', [AdminController::class,'index'])->name('index');
 
     // Field
@@ -79,6 +85,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/insert',[SliderController::class,'postInsert'])->name('post-insert');
         Route::get('/update/{id}',[SliderController::class,'update'])->name('update');
         Route::post('/update',[SliderController::class,'postUpdate'])->name('post-update');
+        Route::post('/update-state/{id}',[SliderController::class,'updateState'])->name('update-state');
         Route::get('/delete/{id}',[SliderController::class,'delete'])->name('delete');
     });
     //Central Service
@@ -87,6 +94,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/insert',[CentralServiceController::class,'postInsert'])->name('post-insert');
         Route::get('/update/{id}',[CentralServiceController::class,'update'])->name('update');
         Route::post('/update',[CentralServiceController::class,'postUpdate'])->name('post-update');
+        Route::post('/update-state/{id}',[CentralServiceController::class,'updateState'])->name('update-state');
         Route::get('/delete/{id}',[CentralServiceController::class,'delete'])->name('delete');
     });
     //Post

@@ -29,7 +29,7 @@ class CentralServiceRepository implements CentralServiceInterface
     }
     public function updateStateCentralService($id){
         $CentralService=CentralService::find($id);
-        $CentralService->state=!$CentralService->state;
+        $CentralService->active=!$CentralService->active;
         $CentralService->save();
     }
     public function deleteCentralService($id)

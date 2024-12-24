@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('current_residence');
             $table->string('phone');
             $table->string('email');
-            $table->string('facebook');
+            $table->string('facebook')->nullable();
             $table->string('level');
             $table->string('file_cv');
             $table->tinyInteger('long_day_work');

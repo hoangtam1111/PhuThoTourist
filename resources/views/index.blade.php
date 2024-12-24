@@ -1,7 +1,7 @@
 @extends('layouts.app')
+<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 @section('content')
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
     <!-- Navbar -->
     <div class="navbar">
@@ -10,7 +10,9 @@
             <img class="logo-group" src="{{ asset('image/logo/logo-group.png') }}" alt="">
             <p>Truy cập vào phuthohotel.com</p>
         </div>
-        <i class="down fa fa-angle-double-down" aria-hidden="true"></i>
+        <a href="#slider">
+            <i class="down fa fa-angle-double-down" aria-hidden="true" id="#slider"></i>
+        </a>
     </div>
     <!-- Slider -->
     <div class="container">
@@ -27,10 +29,12 @@
                 <input type="radio" name="slider" id="s4">
                 <input type="radio" name="slider" id="s5">
                 @for ($i=0;$i<5;$i++)
-                    <label for="s{{ $i+1 }}" id="slider{{ $i+1 }}">
-                        <img src="{{ asset('image/sliders/'.$sliders[$i]->image) }}" height="500px" width="100%" alt="">
-                        <div class="text">{{ $sliders[$i]->title }}</div>
-                    </label>
+                    @if($sliders[$i]->active)
+                        <label for="s{{ $i+1 }}" id="slider{{ $i+1 }}">
+                            <img src="{{ asset('image/sliders/'.$sliders[$i]->image) }}" height="500px" width="100%" alt="">
+                            <div class="text">{{ $sliders[$i]->title }}</div>
+                        </label>
+                    @endif
                 @endfor
             </section>
         </div>
@@ -62,7 +66,7 @@
                         </div>
                         <button>Xem chi tiết</button>
                     </div>
-                    <div class="col-12 col-md-5 col-lg-5 image">
+                    <div class="col-12 col-md-5 col-lg-5 mb-5 image">
                         <img class="image-about-first" src="{{ asset('image/background/Rectangle 11.png') }}"
                             alt="">
                         <img class="image-about-second" src="{{ asset('image/background/Rectangle 12.png') }}"
@@ -71,7 +75,7 @@
                 </div>
 
             </div>
-            <div class="new-post text-center mt-5">
+            <div class="new-post text-center mt-5 mb-0">
                 <img class="img-background" src="{{ asset('image/background/logo-background.png') }}" alt="">
                 <p class="title text-light mt-4">CHIA SẼ THÔNG TIN</p>
                 <div class="header">Bài viết mới</div>
@@ -81,7 +85,7 @@
                 <div class="row justify-content-center">
                     @if (!empty($newPosts))
                         @foreach ($newPosts as $newPost)
-                            <div class="col-3">
+                            <div class="col-lg-3 col-md-3 col-12">
                                 <div class="card">
                                     <img src="{{ asset('image/post/' . $newPost->image) }}" class="card-img-top"
                                         alt="...">
@@ -113,7 +117,7 @@
                 </div>
                 <a href="{{ route('post') }}" class="btn btn-posts mt-4 mb-4">Xem thêm bài viết</a>
             </div>
-            <div class="central-service text-center pt-4 pb-5 mb-4">
+            <div class="central-service text-center pt-4 pb-5 mb-4 mt-4">
                 <p class="title ">LĨNH VỰC HOẠT ĐỘNG</p>
                 <div class="header">Các dịch vụ trọng tâm</div>
                 <div class="underline"></div>
@@ -121,7 +125,7 @@
                     và dịch vụ lữ hành</p>
                 <div class="row justify-content-center">
                     @foreach ($centralServices as $central)
-                        <div class="col-3">
+                        <div class="col-lg-3 col-md-3 col-12 ">
                             <div class="card">
                                 <img src="{{ asset('image/central/' . $central->image) }}" class="card-img-top"
                                     alt="...">

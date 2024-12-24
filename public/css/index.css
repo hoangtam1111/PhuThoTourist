@@ -1,3 +1,6 @@
+body {
+    overflow-x: hidden;
+}
 /* Navbar */
 .navbar{
     margin-top: -110px;
@@ -57,7 +60,7 @@
     display: none;
 }
 #slider {
-    height: 35vw;
+    height: 500px;
     position: relative;
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -103,13 +106,13 @@
     font-size: 20px;
     font-weight: 700;
     position: absolute;
-    bottom: 120px;
+    bottom: 4%;
     left: 24px;
     right: 24px;
 }
 /* Content */
 .content {
-    background: #b2f1c7b2;
+    background: #FFFFFFB2;
     border-radius: 24px;
     margin-bottom: 200px;
 }
@@ -187,6 +190,13 @@
     transform: translateX(-50%); /* Canh giữa */
 }
 /* Card */
+.content .card{
+    border-radius: 12px;
+}
+.content .card img{
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
 .content .card .role{
     font-size: 18px;
     color: #858585;
@@ -271,4 +281,45 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+@media (max-width: 739px){
+    .content {
+        padding: 24px!important;
+    }
+    .content .about{
+        padding: 0 !important;
+    }
+    .content .image img {
+        width: 70%;
+    }
+    .content .image-about-second {
+        bottom: -55px !important;
+        left: 114px !important;
+    }
+    .content .new-post {
+        margin: -24px !important;
+    }
+    .new-post {
+        padding: 24px;
+    }
+    .content .new-post .btn-posts {
+        width: 100%;
+        margin-top: 0 !important;
+    }
+    .content .central-service{
+        margin: 0 -24px;
+        padding: 24px;
+    }
+    .content .central-service .header {
+        font-size: 28px;
+    }
+    .content .central-service .text {
+        font-weight: 400;
+        font-size: 16px;
+    }
+    .list-post{
+        margin: 0 -24px;
+        padding: 12px;
+    }
 }

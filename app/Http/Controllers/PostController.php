@@ -22,14 +22,14 @@ class PostController extends Controller
 
         $posts=$this->post->getPostsOnPage($page,12,$type_id, $search,$from,$to);
         $newPosts = $this->post->getNewPost(10);
-        $slider=$this->post->getNewPost(4);
+        $sliders=$this->post->getNewPost(4);
         $types=$this->type->getAllTypePost();
         $total=$this->post->getTotalPages(12,$type_id, $search,$from,$to);
 
         return view('post', compact(
             'posts',
             'newPosts',
-            'slider',
+            'sliders',
             'types',
             'type_id',
             'search',
@@ -38,6 +38,10 @@ class PostController extends Controller
             'total',
             'page'
         ));
+    }
+    public function sliders(){
+        $sliders=$this->post->getNewPost(4);
+        return response()->json($sliders);
     }
     public function document(Request $request){
         $page = $request->input('page', 1);
@@ -60,6 +64,9 @@ class PostController extends Controller
     public function detailDocument($id){
         $post=$this->post->getPost($id);
         $posts=$this->post->getNewPost(4);
+        $this->post->updatePost([
+            'view' => $post->view+1
+        ],$post->id);
         return view('detail_document', compact('post', 'posts'));
     }
 }

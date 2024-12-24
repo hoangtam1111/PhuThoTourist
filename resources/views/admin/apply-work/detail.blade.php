@@ -11,7 +11,7 @@
                 </tr>
                 <tr>
                     <td><label class="form-label">Sex</label></td>
-                    <td>{{ $applyWork->sex }}</td>
+                    <td>{{ $applyWork->sex==1?'Nam':'Nữ' }}</td>
                 </tr>
                 <tr>
                     <td><label class="form-label">Date of Birth</label></td>
@@ -34,10 +34,12 @@
                     <td><label class="form-label">Email</label></td>
                     <td>{{ $applyWork->email }}</td>
                 </tr>
-                <tr>
-                    <td><label class="form-label">Facebook</label></td>
-                    <td><a href="{{ $applyWork->facebook }}">Link</a></td>
-                </tr>
+                @if ($applyWork->facebook)
+                    <tr>
+                        <td><label class="form-label">Facebook</label></td>
+                        <td><a href="{{ $applyWork->facebook }}">Link</a></td>
+                    </tr>
+                @endif
                 <tr>
                     <td><label class="form-label">Level</label></td>
                     <td>{{ $applyWork->level }}</td>
@@ -45,11 +47,23 @@
 
                 <tr>
                     <td><label class="form-label">Long day work</label></td>
-                    <td>{{ $applyWork->long_day_work }}</td>
+                    @if($applyWork->long_day_work==0)
+                        <td>Có</td>
+                    @elseif($applyWork->long_day_work==1)
+                        <td>Tuỳ thời điểm</td>
+                    @else
+                        <td>Không</td>
+                    @endif
                 </tr>
                 <tr>
                     <td><label class="form-label">Overtime</label></td>
-                    <td>{{ $applyWork->overtime }}</td>
+                    @if($applyWork->overtime==0)
+                        <td>Có</td>
+                    @elseif($applyWork->overtime==1)
+                        <td>Tuỳ thời điểm</td>
+                    @else
+                        <td>Không</td>
+                    @endif
                 </tr>
                 <tr>
                     <td><label class="form-label">Previous Workplace</label></td>

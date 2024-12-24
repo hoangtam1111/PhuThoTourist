@@ -16,13 +16,13 @@
     font-size: 20px;
     color: #3376B8;
 }
-.content .text .time,
-.content .text .location{
+.content  .time,
+.content  .location{
     font-weight: 600;
     font-size: 18px;
     color: #666666;
 }
-.content .title .state.green{
+ .state.green{
     background-color: #E6F7E6;
     color: #03A600;
     font-weight: 600;
@@ -32,7 +32,7 @@
     height: 57px;
 }
 
-.content .title .state.red{
+ .state.red{
     background-color: #F7E6E6;
     color: #FF3939;
     font-weight: 600;
@@ -106,7 +106,7 @@
 .content .apply .icon{
     position: absolute;
     top: 36px;
-    right: 12px;
+    right: 20px;
 }
 
 .content .apply textarea{
@@ -122,4 +122,49 @@
     border: none;
     padding: 4px 28px;
     border-radius: 6px;
+}
+.title-mobile{
+    display: none;
+}
+@media (max-width: 739px){
+    .content{
+        padding: 12px;
+        width: 94%;
+        margin: 12px;
+    }
+    .title{
+        display: none !important;
+    }
+
+
+    .title-mobile{
+        display: block;
+    }
+    .title-mobile .logo img{
+        width: 70px;
+    }
+    .title-mobile .text .name{
+        font-size: 20px;
+    }
+    .content .header {
+        font-weight: 600;
+        font-size: 24px;
+        color: #0054A6;
+    }
+    .table{
+        display: none;
+    }
+    .detail-mobile{
+        display: block !important;
+    }
+    .detail-mobile ul,
+    .detail-mobile p{
+        font-size: 14px;
+    }
+    .content .apply {
+        width: 100%;
+    }
+    .content .apply .radio {
+        justify-content: space-between;
+    }
 }

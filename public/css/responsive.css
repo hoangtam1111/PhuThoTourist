@@ -1,0 +1,22 @@
+@media (max-width: 739px) {
+    /* Header */
+    .header{
+        opacity: 0.9;
+    }
+    .navbar{
+        display: none;
+    }
+    header .nav{
+        display: none;
+    }
+    header .mobile{
+        display: block !important;
+    }
+    /* Footer */
+    footer .nav{
+        display: none;
+    }
+    footer .mobile{
+        display: block !important;
+    }
+}

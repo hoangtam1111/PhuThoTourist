@@ -22,4 +22,10 @@ class Post extends Model
     public function typePost(){
         return $this->belongsToMany(TypePost::class, 'detail_type_posts', 'post_id', 'type_post_id');
     }
+    public function parseArray($string){
+        return explode('\n', $string);
+    }
+    public function parseArrayTab($string){
+        return explode('\t', $string);
+    }
 }

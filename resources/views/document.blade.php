@@ -3,66 +3,50 @@
     <link rel="stylesheet" href="{{ asset('css/document.css') }}">
     <!-- Content -->
     <div class="container mt-5 content text-center">
-        <div class="title mb-4">
-            Tài liệu
+        <div class="arrow-container">
+            <div class="arrow-div">TÀI LIỆU</div>
         </div>
         <div class="new-document pb-5">
             <div class="row">
-                <div class="col-3 mb-3">
-                    <div class="document">
-                        <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
-                        <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
-                        <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
-                    </div>
+                <div class="col-ld-3 col-md-3 col-4 p-1 document">
+                    <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
+                    <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
+                    <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
                 </div>
-                <div class="col-3 mb-3">
-                    <div class="document">
-                        <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
-                        <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
-                        <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
-                    </div>
+                <div class="col-ld-3 col-md-3 col-4 p-1 document">
+                    <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
+                    <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
+                    <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
                 </div>
-                <div class="col-3 mb-3">
-                    <div class="document">
-                        <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
-                        <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
-                        <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
-                    </div>
+                <div class="col-ld-3 col-md-3 col-4 p-1 document">
+                    <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
+                    <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
+                    <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
                 </div>
-                <div class="col-3 mb-3">
-                    <div class="document">
-                        <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
-                        <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
-                        <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
-                    </div>
+                <div class="col-ld-3 col-md-3 col-4 p-1 document">
+                    <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
+                    <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
+                    <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
                 </div>
-                <div class="col-3 mb-3">
-                    <div class="document">
-                        <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
-                        <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
-                        <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
-                    </div>
+                <div class="col-ld-3 col-md-3 col-4 p-1 document">
+                    <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
+                    <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
+                    <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
                 </div>
-                <div class="col-3 mb-3">
-                    <div class="document">
-                        <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
-                        <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
-                        <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
-                    </div>
+                <div class="col-ld-3 col-md-3 col-4 p-1 document">
+                    <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
+                    <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
+                    <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
                 </div>
-                <div class="col-3 mb-3">
-                    <div class="document">
-                        <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
-                        <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
-                        <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
-                    </div>
+                <div class="col-ld-3 col-md-3 col-4 p-1 document hidden">
+                    <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
+                    <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
+                    <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
                 </div>
-                <div class="col-3 mb-3">
-                    <div class="document">
-                        <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
-                        <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
-                        <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
-                    </div>
+                <div class="col-ld-3 col-md-3 col-4 p-1 document hidden">
+                    <img class="img-background" src="{{ asset('image/document/img-doc.png') }}" alt="">
+                    <img class="icon-doc" src="{{ asset('image/icon/files.png') }}" alt="">
+                    <div class="text">Báo cáo Tài Chính năm 2022-2023</div>
                 </div>
             </div>
             <i class="down fa fa-angle-double-down" aria-hidden="true"></i>
@@ -93,7 +77,23 @@
                     </div>
                 </div>
             </div>
-
+            <div class="filter-mobile d-none">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="input-search">
+                        <form action="{{ route('document') }}" method="get">
+                            <button type="submit" id="button-search">
+                                <i class="fa fa-search" aria-hidden="true" id="search-button"></i>
+                            </button>
+                            <input type="hidden" name="from" value="{{ $from }}">
+                            <input type="hidden" name="to" value="{{ $to }}">
+                            <input type="text" placeholder="Tìm kiếm" name="search" id="search-input" value="{{ $search }}">
+                        </form>
+                    </div>
+                    <div class="input-date">
+                        <i class="fa fa-sliders" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
             <div class="table p-2 mt-2">
                 <div class="row">
                     <div class="header col-1 text-center"
@@ -118,6 +118,35 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+            <div class="documents d-none">
+                <div class="row">
+                    @foreach ($posts as $post)
+                        {{-- <div class="body col-1 text-center"
+                            style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">{{ $post->id }}</div>
+                        <div class="body col-5"></div>
+                        <div class="body col-3"></div>
+                        <div class="body col-3 text-center"
+                            style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
+                            <a href="{{ asset('files/post/' . $post->file) }}"
+                                download="{{ asset('files/post/' . $post->file) }}">
+                                <i class="fa fa-download" aria-hidden="true"></i>
+                            </a>
+                        </div> --}}
+                        <div class="d-flex justify-content-between align-items-center document-item">
+                            <div class="title-document">
+                                <div class="text text-start">{{ $post->title }}</div>
+                                <div class="date text-start">{{ $post->date }}</div>
+                            </div>
+                            <div class="download p-2">
+                                <a href="{{ asset('files/post/' . $post->file) }}"
+                                    download="{{ asset('files/post/' . $post->file) }}">
+                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
             <div class="pages d-flex justify-content-between">
                 <div class="num-of-page">
@@ -144,7 +173,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection
 <script>

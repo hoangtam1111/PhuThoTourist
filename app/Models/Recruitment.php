@@ -41,6 +41,6 @@ class Recruitment extends Model
         return $currentDate->diffInWeeks($targetDate);
     }
     public function parseArray($string){
-        return explode("\n", $string);
+        return explode('\n', $string);
     }
 }

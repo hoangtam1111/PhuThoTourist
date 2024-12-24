@@ -3,11 +3,11 @@
     <link rel="stylesheet" href="{{ asset('css/recruitment.css') }}">
     <!-- Content -->
     <div class="container mt-5 mb-5 content text-center">
-        <div class="title">
-            Tuyển dụng
+        <div class="arrow-container">
+            <div class="arrow-div">TUYỂN DỤNG</div>
         </div>
         <div class="row">
-            <div class="col-3" style="min-height: 864px; margin-bottom: 55px;">
+            <div class="col-lg-3 col-md-3 col-12" style="min-height: 864px; margin-bottom: 55px;">
                 <div class="filter">
                     <div class="filter-search">
                         <form action="{{ route('recruitments') }}" method="get">
@@ -69,11 +69,11 @@
                     <img src="{{ asset('image/background/img-background.png') }}" class="img-background" alt="">
                 </div>
             </div>
-            <div class="col-9">
+            <div class="col-lg-9 col-md-9 col-12 list-recruitment">
                 <div class="row">
                     @if (count($recruitments)>0)
                         @foreach ($recruitments as $recruitment)
-                            <div class="col-4 mb-4">
+                            <div class="col-lg-4 col-12 mb-4">
                                 <div class="recruiment ">
                                     <div class="title d-flex flex-wrap">
                                         <img src="{{ asset('image/background/logo-dam-sen.png') }}" alt="">
@@ -85,9 +85,15 @@
                                                 <div class="time">
                                                     <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $recruitment->getWeek($recruitment->date) }} tuần trước
                                                 </div>
-                                                <div class="state green">
-                                                    <span>Đang tuyển</span>
-                                                </div>
+                                                @if ($recruitment->state==0)
+                                                    <div class="state green">
+                                                        <span>Đang tuyển</span>
+                                                    </div>
+                                                @else
+                                                    <div class="state red">
+                                                        <span>Đã tuyển</span>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
